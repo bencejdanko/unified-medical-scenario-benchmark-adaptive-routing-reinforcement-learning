@@ -1,13 +1,13 @@
 import json
 import os
 import re
-import hashlib
-from typing import Dict, Any, List, Optional, Tuple, ClassVar, Type, Literal
+from typing import Dict, Any, List, Optional, Tuple, ClassVar, Type
 import blobfile as bf
-from pydantic import PrivateAttr
-from cube.task import Task, TaskMetadata
-from cube.benchmark import Benchmark, BenchmarkMetadata, TaskConfig, RuntimeContext
+from pydantic import PrivateAttr, Field
+from cube.task import Task, TaskMetadata, TaskConfig
+from cube.benchmark import Benchmark, BenchmarkMetadata, RuntimeContext
 from cube.tool import ToolboxConfig
+from cube.core import Observation, StructuredContent, EnvironmentOutput, Action, Content
 from openai import OpenAI
 from dotenv import load_dotenv
 
@@ -46,26 +46,13 @@ def parse_json_to_dict(json_string: str) -> dict:
         return {}
 
 class HealthBenchTask(Task):
-    task_metadata: ClassVar[TaskMetadata] = TaskMetadata(
-        id="healthbench-v1",
-        name="HealthBench-Task",
-        description="A medical rubric-based evaluation task.",
-        version="1.0.0"
-    )
-
     _data: Dict[str, Any] = PrivateAttr()
-    _task_id: str = PrivateAttr()
-    _done: bool = PrivateAttr(default=False)
     _grader_client: OpenAI = PrivateAttr()
+    _done: bool = PrivateAttr(default=False)
 
-    def __init__(self, data: Dict[str, Any], task_id: str, **kwargs):
-        if "metadata" not in kwargs:
-            kwargs["metadata"] = self.task_metadata
-        if "tool_config" not in kwargs:
-            kwargs["tool_config"] = ToolboxConfig()
+    def __init__(self, data: Dict[str, Any], **kwargs):
         super().__init__(**kwargs)
         self._data = data
-        self._task_id = task_id
         self._done = False
         
         clean_url = OPENAI_API_URL
@@ -73,12 +60,15 @@ class HealthBenchTask(Task):
             clean_url = clean_url[:-len("/chat/completions")]
         self._grader_client = OpenAI(base_url=clean_url, api_key=OPENAI_API_KEY)
 
-    def reset(self, config: Optional[TaskConfig] = None) -> Dict[str, Any]:
+    def reset(self) -> Tuple[Observation, Dict[str, Any]]:
         self._done = False
-        return {
-            "prompt": self._data["prompt"],
-            "rubrics": self._data["rubrics"]
-        }
+        # In CUBE, we return an Observation. 
+        # For HealthBench, the prompt is already a list of messages.
+        obs = Observation(contents=[
+            Content.from_data(self._data["prompt"], name="prompt"),
+            Content.from_data(self._data["rubrics"], name="rubrics")
+        ])
+        return obs, {}
 
     def _grade_response(self, response_text: str) -> float:
         convo_with_response = self._data["prompt"] + [{"role": "assistant", "content": response_text}]
@@ -91,7 +81,6 @@ class HealthBenchTask(Task):
         
         achieved = 0.0
         for item in rubric_items:
-            # Simple grading call
             prompt = GRADER_TEMPLATE.replace("<<conversation>>", convo_str).replace("<<rubric_item>>", item["criterion"])
             try:
                 res = self._grader_client.chat.completions.create(
@@ -106,70 +95,125 @@ class HealthBenchTask(Task):
         
         return achieved / total_possible
 
-    def step(self, action: Dict[str, Any]) -> Tuple[Dict[str, Any], float, bool, Dict[str, Any]]:
+    def evaluate(self, obs: Observation) -> Tuple[float, Dict[str, Any]]:
+        # Usually called after a step. 
+        # In this task, reward is only meaningful after the 'answer' action.
+        return 0.0, {} # Reward is handled in step() for this specific task type
+
+    def step(self, action: Action | List[Action]) -> EnvironmentOutput:
         if self._done:
             raise RuntimeError("Task finished.")
         
-        if action.get("type") == "answer":
-            answer = action.get("content", "")
-            reward = self._grade_response(answer)
-            self._done = True
-            return {}, reward, True, {"score": reward}
+        # Action is now a CUBE Action object
+        actions = action if isinstance(action, list) else [action]
+        last_reward = 0.0
         
-        return {"status": "error", "message": "Invalid action"}, 0.0, False, {}
+        for act in actions:
+            if act.name == "answer":
+                answer = act.arguments.get("content", "")
+                last_reward = self._grade_response(answer)
+                self._done = True
+                return EnvironmentOutput(
+                    obs=Observation.from_text("Task completed."),
+                    reward=last_reward,
+                    done=True,
+                    info={"score": last_reward}
+                )
+        
+        return EnvironmentOutput(
+            obs=Observation.from_text("Waiting for answer..."),
+            reward=0.0,
+            done=False
+        )
 
-    def evaluate(self) -> Dict[str, Any]:
-        return {"task_id": self._task_id, "done": self._done}
+class HealthBenchTaskConfig(TaskConfig):
+    data: Dict[str, Any] = Field(..., description="Task data record")
+
+    def make(self, runtime_context: RuntimeContext | None = None, container_backend: Any = None) -> HealthBenchTask:
+        # Get metadata from the benchmark class (if possible) or create it
+        # In CUBE, metadata is usually passed in
+        # We need to find the metadata for this task_id
+        # For simplicity, we assume the benchmark class is globally accessible or we reconstruct it
+        
+        # Reconstruct metadata (or we could fetch it from a registry)
+        from cube.task import TaskMetadata
+        metadata = TaskMetadata(id=self.task_id, abstract_description="HealthBench medical rubric task")
+        
+        return HealthBenchTask(
+            data=self.data,
+            metadata=metadata,
+            tool_config=self.tool_config or ToolboxConfig(),
+            runtime_context=runtime_context
+        )
 
 class HealthBenchBenchmark(Benchmark):
     benchmark_metadata: ClassVar[BenchmarkMetadata] = BenchmarkMetadata(
-        id="healthbench-benchmark-v1",
         name="HealthBench-Benchmark",
         description="Benchmark for medical rubric evaluation.",
-        version="1.0.0"
+        version="1.0.0",
+        extra_info={"id": "healthbench-benchmark-v1"}
     )
 
-    # CUBE protocol requirements
-    task_metadata: ClassVar[Dict[str, Any]] = {
-        "id": "healthbench-v1",
-        "name": "HealthBench-Task",
-        "description": "A medical rubric-based evaluation task.",
-        "version": "1.0.0"
-    }
-    
-    task_config_class: ClassVar[Type[TaskConfig]] = TaskConfig
+    # We can't easily populate 5000 tasks at class level without reading the file
+    # CUBE typically expects task_metadata to be a dict[str, TaskMetadata]
+    task_metadata: ClassVar[Dict[str, TaskMetadata]] = {}
+    task_config_class: ClassVar[Type[TaskConfig]] = HealthBenchTaskConfig
 
-    _tasks: List[HealthBenchTask] = PrivateAttr(default_factory=list)
-    _num_examples: Optional[int] = PrivateAttr()
+    _task_data: Dict[str, Dict[str, Any]] = PrivateAttr(default_factory=dict)
 
     def __init__(self, num_examples: Optional[int] = None, **kwargs):
         super().__init__(**kwargs)
-        self._num_examples = num_examples
-        self._tasks = []
+        self._load_tasks(num_examples)
 
     def _setup(self):
-        self._load_tasks(self._num_examples)
+        pass
 
     def close(self):
         pass
 
     def _load_tasks(self, num_examples: Optional[int]):
+        # Clear existing
+        self._task_data = {}
+        new_metadata = {}
+        
         with bf.BlobFile(INPUT_PATH, "rb") as f:
             for i, line in enumerate(f):
                 if num_examples is not None and i >= num_examples:
                     break
                 data = json.loads(line)
-                self._tasks.append(HealthBenchTask(data, f"hb_{i}"))
+                task_id = f"hb_{i}"
+                self._task_data[task_id] = data
+                new_metadata[task_id] = TaskMetadata(
+                    id=task_id,
+                    abstract_description=f"HealthBench task {i}",
+                )
+        
+        # Shadow the class variable with instance data
+        object.__setattr__(self, "task_metadata", new_metadata)
 
-    def get_task(self, index: int, config: Optional[TaskConfig] = None) -> HealthBenchTask:
-        if not self._tasks:
-            self._setup()
-        return self._tasks[index]
+    def get_task_configs(self) -> List[HealthBenchTaskConfig]:
+        configs = []
+        for task_id, tm in self.task_metadata.items():
+            configs.append(HealthBenchTaskConfig(
+                task_id=task_id,
+                data=self._task_data[task_id],
+                tool_config=ToolboxConfig()
+            ))
+        return configs
+
+    def get_task(self, index: int) -> HealthBenchTask:
+        # Compatibility with existing test scripts
+        task_id = list(self.task_metadata.keys())[index]
+        config = HealthBenchTaskConfig(
+            task_id=task_id,
+            data=self._task_data[task_id],
+            tool_config=ToolboxConfig()
+        )
+        return config.make()
 
     def __len__(self):
-        if not self._tasks:
-            self._setup()
-        return len(self._tasks)
+        return len(self.task_metadata)
 
 HealthBenchTask.model_rebuild()
 HealthBenchBenchmark.model_rebuild()
+HealthBenchTaskConfig.model_rebuild()

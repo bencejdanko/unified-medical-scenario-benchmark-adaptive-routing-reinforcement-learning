@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 # Import the benchmarks
 from healthbench_cube.cube_healthbench import HealthBenchBenchmark
 from medagentbench_cube.cube_medagentbench import MedAgentBenchBenchmark
+from cube.core import Action
 
 load_dotenv()
 
@@ -32,7 +33,7 @@ def get_model_response(messages, tools=None):
             "temperature": 0.0
         }
         if tools:
-            # Convert MCP tools to OpenAI format
+            # Convert tools to OpenAI format
             openai_tools = []
             for t in tools:
                 openai_tools.append({
@@ -55,9 +56,19 @@ def test_healthbench():
     print("\n--- Testing HealthBench ---")
     benchmark = HealthBenchBenchmark(num_examples=1)
     task = benchmark.get_task(0)
-    observation = task.reset()
+    obs, info = task.reset()
     
-    prompt = observation["prompt"]
+    # Extract prompt from observation
+    prompt = None
+    for content in obs.contents:
+        if content.name == "prompt":
+            prompt = content.data
+            break
+            
+    if not prompt:
+        print("Error: Prompt not found in observation")
+        return
+        
     print(f"Prompt: {prompt[0]['content'][:100]}...")
     
     message = get_model_response(prompt)
@@ -65,9 +76,11 @@ def test_healthbench():
     answer = message.content
     print(f"Answer: {answer[:100]}...")
     
-    action = {"type": "answer", "content": answer}
-    obs, reward, done, info = task.step(action)
-    print(f"Reward: {reward}")
+    # Action creation
+    action = Action(name="answer", arguments={"content": answer})
+    res = task.step(action)
+    print(f"Reward: {res.reward}")
+    print(f"Done: {res.done}")
 
 def test_medagentbench():
     print("\n--- Testing MedAgentBench ---")
@@ -76,10 +89,16 @@ def test_medagentbench():
         func_path="medagentbench_cube/data/medagentbench/funcs_v1.json"
     )
     task = benchmark.get_task(0)
-    observation = task.reset()
+    obs, info = task.reset()
     
-    instruction = observation["instruction"]
-    tools = observation["tools"]
+    instruction = None
+    tools = []
+    for content in obs.contents:
+        if content.name == "instruction":
+            instruction = content.data
+        elif content.name == "tools":
+            tools = content.data
+            
     print(f"Instruction: {instruction}")
     print(f"Available Ported Tools: {[t['name'] for t in tools]}")
     
@@ -90,14 +109,12 @@ def test_medagentbench():
     if message.tool_calls:
         for tool_call in message.tool_calls:
             print(f"Model called tool: {tool_call.function.name} with {tool_call.function.arguments}")
-            # In a real agent loop, we would call task.step() here
-            action = {
-                "type": "tool_call",
-                "name": tool_call.function.name,
-                "parameters": json.loads(tool_call.function.arguments)
-            }
-            obs, reward, done, info = task.step(action)
-            print(f"Observation: {obs}")
+            action = Action(
+                name=tool_call.function.name,
+                arguments=json.loads(tool_call.function.arguments)
+            )
+            res = task.step(action)
+            print(f"Observation: {res.obs.contents[0].data if res.obs.contents else 'No observation'}")
     else:
         print(f"Answer: {message.content}")
 
