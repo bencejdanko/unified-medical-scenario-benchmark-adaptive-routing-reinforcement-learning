@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "model": "gpt-oss-120b",
+    "benchmark": "medqa",
+    "accuracy": 0.9018067556952082,
+    "f1_macro": 0.9068713680045435,
+    "n": 1273,
+    "errors": 0
+  },
+  {
+    "model": "gpt-oss-120b",
+    "benchmark": "medmcqa",
+    "accuracy": 0.7351674641148326,
+    "f1_macro": 0.7376842725543737,
+    "n": 4180,
+    "errors": 3
+  },
+  {
+    "model": "gpt-oss-120b",
+    "benchmark": "pubmedqa",
+    "accuracy": 0.668,
+    "f1_macro": 0.5799667604104063,
+    "n": 500,
+    "errors": 0
+  },
+  {
+    "model": "gpt-oss-120b",
+    "benchmark": "mmlu_medical",
+    "accuracy": 0.8858520900321544,
+    "f1_macro": 0.8865958728235515,
+    "n": 1866,
+    "errors": 5
+  }
+]

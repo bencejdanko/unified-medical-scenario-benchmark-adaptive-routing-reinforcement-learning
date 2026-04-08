@@ -1,0 +1,4982 @@
+{
+  "model": "gemini-3-flash-preview",
+  "benchmark": "pubmedqa",
+  "results": [
+    {
+      "index": 0,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9675822257995605,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 1,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9230103492736816,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 2,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9255754947662354,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 3,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.936335563659668,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 4,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.899857997894287,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 5,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8275279998779297,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 6,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8486809730529785,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 7,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0477626323699951,
+      "raw_response": "thoughtful\n{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 8,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.7895517349243164,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 9,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9089639186859131,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 10,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8412578105926514,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 11,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9497814178466797,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 12,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9877197742462158,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 13,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9203023910522461,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 14,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.787024736404419,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 15,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.877108097076416,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 16,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8845198154449463,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 17,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9762668609619141,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 18,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8217687606811523,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 19,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.7476966381072998,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 20,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.9196901321411133,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 21,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.7808389663696289,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 22,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0164899826049805,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 23,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.7332379817962646,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 24,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9701869487762451,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 25,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.027757167816162,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 26,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8101227283477783,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 27,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8841257095336914,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 28,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0115878582000732,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 29,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9130246639251709,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 30,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1126234531402588,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 31,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8418145179748535,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 32,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2154979705810547,
+      "raw_response": "thought\n{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 33,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8146758079528809,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 34,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8981161117553711,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 35,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.8585753440856934,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 36,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.889817476272583,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 37,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.6604893207550049,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 38,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9817750453948975,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 39,
+      "predicted": "C",
+      "confidence": 0.8,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.7570328712463379,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.8}"
+    },
+    {
+      "index": 40,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8048768043518066,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 41,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8664591312408447,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 42,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8403797149658203,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 43,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0237102508544922,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 44,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9463675022125244,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 45,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8381409645080566,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 46,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0344517230987549,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 47,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8224518299102783,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 48,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0664217472076416,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 49,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.5691964626312256,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 50,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8479163646697998,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 51,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.4062554836273193,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 52,
+      "predicted": "A",
+      "confidence": 0.99,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2928080558776855,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.99}"
+    },
+    {
+      "index": 53,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2694180011749268,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 54,
+      "predicted": "C",
+      "confidence": 0.85,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.251375436782837,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.85}"
+    },
+    {
+      "index": 55,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2519211769104004,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 56,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0662422180175781,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 57,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0354902744293213,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 58,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.7765562534332275,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 59,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1665914058685303,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 60,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2503290176391602,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 61,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9364547729492188,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 62,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1993637084960938,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 63,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.913672924041748,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 64,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8975844383239746,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 65,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9027719497680664,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 66,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1743528842926025,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 67,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1511714458465576,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 68,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2356383800506592,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 69,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.7681913375854492,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 70,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0327355861663818,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 71,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1273119449615479,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 72,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.922727108001709,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 73,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8880777359008789,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 74,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.083089828491211,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 75,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.302933692932129,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 76,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.034944772720337,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 77,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.961986780166626,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 78,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2870073318481445,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 79,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2352988719940186,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 80,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.25547194480896,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 81,
+      "predicted": "C",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0121965408325195,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 82,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9796044826507568,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 83,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0157077312469482,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 84,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0134363174438477,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 85,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1288607120513916,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 86,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.251082181930542,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 87,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.3147380352020264,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 88,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0986106395721436,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 89,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9913358688354492,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 90,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.7806661128997803,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 91,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.004774808883667,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 92,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9909946918487549,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 93,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.4849834442138672,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 94,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.4469757080078125,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 95,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.012404203414917,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 96,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1423897743225098,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 97,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2611985206604004,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 98,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0368351936340332,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 99,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1230401992797852,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 100,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.4374701976776123,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 101,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.3073930740356445,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 102,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.2261521816253662,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 103,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0839710235595703,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 104,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9097869396209717,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 105,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 11.374938488006592,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 106,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1430535316467285,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 107,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2287633419036865,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 108,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.169084072113037,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 109,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0166583061218262,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 110,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8098514080047607,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 111,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.186234951019287,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 112,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.814117431640625,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 113,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.939298152923584,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 114,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0592553615570068,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 115,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.8112316131591797,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 116,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1307435035705566,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 117,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1818153858184814,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 118,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1648988723754883,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 119,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1486001014709473,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 120,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2003576755523682,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 121,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9998786449432373,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 122,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.3068840503692627,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 123,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.4859974384307861,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 124,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8809726238250732,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 125,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9896137714385986,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 126,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.249068021774292,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 127,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2468559741973877,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 128,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2663419246673584,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 129,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2110369205474854,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 130,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0977373123168945,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 131,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.6818654537200928,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 132,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2213354110717773,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 133,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0553812980651855,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 134,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9705328941345215,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 135,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 4.151844263076782,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 136,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.762998104095459,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 137,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.945176362991333,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 138,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.228614091873169,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 139,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.4406030178070068,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 140,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9063167572021484,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 141,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8272590637207031,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 142,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9167354106903076,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 143,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.4206161499023438,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 144,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2206783294677734,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 145,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9372444152832031,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 146,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9034707546234131,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 147,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9748733043670654,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 148,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1851482391357422,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 149,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8741488456726074,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 150,
+      "predicted": "A",
+      "confidence": 0.85,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 5.378030061721802,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.85}"
+    },
+    {
+      "index": 151,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0746698379516602,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 152,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2746942043304443,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 153,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2744743824005127,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 154,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.9004800319671631,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 155,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.993149995803833,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 156,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.3364553451538086,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 157,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9833061695098877,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 158,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8690621852874756,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 159,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1109704971313477,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 160,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0638084411621094,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 161,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9647464752197266,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 162,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.3606159687042236,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 163,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 4.473724603652954,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 164,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.8784101009368896,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 165,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0815317630767822,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 166,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.9685332775115967,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 167,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8781247138977051,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 168,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.8851871490478516,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 169,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.2063992023468018,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 170,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.7251882553100586,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 171,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.3767261505126953,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 172,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.7414772510528564,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 173,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9000651836395264,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 174,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.339479923248291,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 175,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.4561243057250977,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 176,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1645090579986572,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 177,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 5.0098607540130615,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 178,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8622860908508301,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 179,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9997720718383789,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 180,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.3881101608276367,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 181,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.4832839965820312,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 182,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.9920670986175537,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 183,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.9505176544189453,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 184,
+      "predicted": "A",
+      "confidence": 0.85,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2912235260009766,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.85}"
+    },
+    {
+      "index": 185,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.8096883296966553,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 186,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.4128904342651367,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 187,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.168121576309204,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 188,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8464648723602295,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 189,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.1375977993011475,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 190,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.369018793106079,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 191,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.9135913848876953,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 192,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.879228353500366,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 193,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9402282238006592,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 194,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.0329883098602295,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 195,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9540112018585205,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 196,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2107963562011719,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 197,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8260855674743652,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 198,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.800020217895508,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 199,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.191737174987793,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 200,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.116105318069458,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 201,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 4.128235578536987,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 202,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.5815684795379639,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 203,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 4.2090163230896,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 204,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.018805742263794,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 205,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.3395311832427979,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 206,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.2969024181365967,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 207,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 5.806595802307129,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 208,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0040075778961182,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 209,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 6.1381354331970215,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 210,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.6996560096740723,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 211,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 5.35474419593811,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 212,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0504872798919678,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 213,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0369210243225098,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 214,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.110718011856079,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 215,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 4.706700086593628,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 216,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0351917743682861,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 217,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 4.8571319580078125,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 218,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 5.888167142868042,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 219,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.2014551162719727,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 220,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9400355815887451,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 221,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.3671979904174805,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 222,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 5.361784934997559,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 223,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.5884339809417725,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 224,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 4.331222295761108,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 225,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.0210537910461426,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 226,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1734509468078613,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 227,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.519162654876709,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 228,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.420025587081909,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 229,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9241969585418701,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 230,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 9.57861614227295,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 231,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 4.367789268493652,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 232,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.4086592197418213,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 233,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.114046335220337,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 234,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1047437191009521,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 235,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 2.935035228729248,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 236,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1014795303344727,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 237,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.9068708419799805,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 238,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 4.322937250137329,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 239,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0114355087280273,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 240,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 4.397900104522705,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 241,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.248992919921875,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 242,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 4.358229398727417,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 244,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.1739425659179688,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 245,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.882664680480957,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 246,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9374501705169678,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 247,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9701371192932129,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 248,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1461172103881836,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 249,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.0533337593078613,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 250,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.0312483310699463,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 251,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.8399481773376465,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 252,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.9487862586975098,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 253,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0720620155334473,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 254,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 4.000011444091797,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 255,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8189799785614014,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 256,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.3927044868469238,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 257,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.7576372623443604,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 258,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.181704521179199,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 259,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.181936502456665,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 260,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 5.243237495422363,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 261,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.3815970420837402,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 262,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.5976741313934326,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 263,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.7331302165985107,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 264,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.2197227478027344,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 265,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 2.5156211853027344,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 266,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2489070892333984,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 267,
+      "predicted": "C",
+      "confidence": 0.85,
+      "gold": "A",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.896122932434082,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.85}"
+    },
+    {
+      "index": 268,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1009018421173096,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 269,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.442723274230957,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 270,
+      "predicted": "A",
+      "confidence": 0.85,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9241764545440674,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.85}"
+    },
+    {
+      "index": 271,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0755085945129395,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 272,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8052282333374023,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 273,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.497343063354492,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 274,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9985208511352539,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 275,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "A",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1483476161956787,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 276,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.525256872177124,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 277,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 5.254725933074951,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 278,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9714155197143555,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 279,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 6.684031248092651,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 280,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.8006107807159424,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 281,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.838308572769165,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 282,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8829269409179688,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 283,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.3070318698883057,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 284,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.896602153778076,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 285,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1190738677978516,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 286,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8948462009429932,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 287,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0623276233673096,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 288,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 8.055710554122925,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 289,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 3.838724136352539,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 290,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0577325820922852,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 291,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9306638240814209,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 292,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 11.248209476470947,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 293,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 6.46866512298584,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 294,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 11.220348119735718,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 295,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.2992677688598633,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 296,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9916765689849854,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 297,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9518916606903076,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 298,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9011533260345459,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 299,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.5622920989990234,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 300,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0979688167572021,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 301,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 2.350114107131958,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 302,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.9574062824249268,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 303,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.8349685668945312,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 304,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.193122386932373,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 305,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8333888053894043,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 306,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.349717855453491,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 307,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.326613187789917,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 308,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.7198617458343506,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 309,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.3300280570983887,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 310,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0228421688079834,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 311,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9925966262817383,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 312,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2643795013427734,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 313,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0608372688293457,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 314,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 11.577754259109497,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 316,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 2.2761828899383545,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 317,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.1255123615264893,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 318,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.782435417175293,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 319,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0433692932128906,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 320,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.5397093296051025,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 321,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2934761047363281,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 322,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9331912994384766,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 323,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.0349764823913574,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 324,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.3054392337799072,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 325,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9723455905914307,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 326,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 7.465121746063232,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 327,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9057986736297607,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 328,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.037667989730835,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 329,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 2.2896132469177246,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 330,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 3.62030029296875,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 331,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.8728013038635254,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 332,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0552606582641602,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 333,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.908724308013916,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 334,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.799983024597168,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 335,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.4892432689666748,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 336,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8278279304504395,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 337,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.5721065998077393,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 338,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9503307342529297,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 339,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1022493839263916,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 340,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9748733043670654,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 341,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.204127550125122,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 342,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8670706748962402,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 343,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9341683387756348,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 344,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0603840351104736,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 345,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0086264610290527,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 346,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0204620361328125,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 347,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9818515777587891,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 348,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0378587245941162,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 349,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.853888988494873,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 350,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9633214473724365,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 351,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8684442043304443,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 352,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.8665063381195068,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 353,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.7822825908660889,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 354,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.7287442684173584,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 355,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.5183985233306885,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 356,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.4089725017547607,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 357,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.302215814590454,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 358,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2315523624420166,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 359,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8545897006988525,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 360,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 2.152876853942871,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 361,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.2552473545074463,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 362,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.793311357498169,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 363,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.254410982131958,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 364,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8484675884246826,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 365,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.894709587097168,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 366,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.7628803253173828,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 367,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0458855628967285,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 368,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.8739838600158691,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 369,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0596449375152588,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 370,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9067280292510986,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 371,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1785821914672852,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 372,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9331543445587158,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 373,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.262967586517334,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 374,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2305917739868164,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 375,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8909761905670166,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 376,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9600205421447754,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 377,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9986214637756348,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 378,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0799171924591064,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 379,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8108751773834229,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 380,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0484704971313477,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 381,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.147326946258545,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 382,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9575474262237549,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 383,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.3668484687805176,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 384,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8885135650634766,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 385,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1416957378387451,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 386,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1753606796264648,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 387,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2798054218292236,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 388,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.8760135173797607,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 389,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2085611820220947,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 390,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0536415576934814,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 391,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2751498222351074,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 392,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.106137752532959,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 393,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 11.261868715286255,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 394,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.224240779876709,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 395,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1376914978027344,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 396,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9707088470458984,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 397,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0824990272521973,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 398,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0625028610229492,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 399,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0469539165496826,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 400,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8541736602783203,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 401,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.2027368545532227,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 402,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.2163944244384766,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 403,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1604859828948975,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 404,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0224175453186035,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 405,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9948046207427979,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 406,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.216773509979248,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 407,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.4382882118225098,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 408,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.3473718166351318,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 409,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.9966137409210205,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 410,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1223065853118896,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 411,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8483026027679443,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 412,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.282132625579834,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 413,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0805597305297852,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 414,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.029797077178955,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 415,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.096350908279419,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 416,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.067319393157959,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 417,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.3049192428588867,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 418,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0066618919372559,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 419,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.062762975692749,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 420,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9443767070770264,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 421,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.7906200885772705,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 422,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9273042678833008,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 423,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1635971069335938,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 424,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9818401336669922,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 425,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9565510749816895,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 426,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8325200080871582,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 427,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.6360156536102295,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 428,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.059727668762207,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 429,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9368867874145508,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 430,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0543198585510254,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 431,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0129306316375732,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 432,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.139932632446289,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 433,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.955897331237793,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 434,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.18784499168396,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 435,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8565213680267334,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 436,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.8483061790466309,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 437,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 11.363994359970093,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 438,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.5503876209259033,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 439,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0089473724365234,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 440,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2312190532684326,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 441,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1282355785369873,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 442,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9953022003173828,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 443,
+      "predicted": "B",
+      "confidence": 1.0,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.114579677581787,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 444,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "B",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.3024461269378662,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 445,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.3486223220825195,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 446,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.9402339458465576,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 447,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.8390700817108154,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 448,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.1112687587738037,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 449,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.688849687576294,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 450,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.2187068462371826,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 451,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.9045596122741699,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 452,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.938652753829956,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 453,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "C",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1784112453460693,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 454,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.176501989364624,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 455,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.2066071033477783,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 456,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0978963375091553,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 457,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "C",
+      "correct": true,
+      "score": 1.0,
+      "latency": 0.9809043407440186,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 458,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.1201257705688477,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 459,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.065385341644287,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 460,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.9423255920410156,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 461,
+      "predicted": "A",
+      "confidence": 0.85,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.444103717803955,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.85}"
+    },
+    {
+      "index": 462,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.2198472023010254,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 463,
+      "predicted": "A",
+      "confidence": 0.85,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.082705020904541,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.85}"
+    },
+    {
+      "index": 464,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.336134672164917,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 465,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.6797375679016113,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 466,
+      "predicted": "C",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0496628284454346,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 467,
+      "predicted": "C",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.1301474571228027,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 468,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.1279525756835938,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 469,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.3532955646514893,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 470,
+      "predicted": "A",
+      "confidence": 0.85,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.2772440910339355,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.85}"
+    },
+    {
+      "index": 471,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.134361743927002,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 472,
+      "predicted": "C",
+      "confidence": 0.9,
+      "gold": "C",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.2189295291900635,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 473,
+      "predicted": "A",
+      "confidence": 0.85,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0011489391326904,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.85}"
+    },
+    {
+      "index": 474,
+      "predicted": "B",
+      "confidence": 0.9,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.1997416019439697,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 475,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.2065401077270508,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 476,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.1680703163146973,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 477,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 2.685882806777954,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 478,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.1130540370941162,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 479,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.1569328308105469,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 480,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.2346110343933105,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 481,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.9317171573638916,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 482,
+      "predicted": "A",
+      "confidence": 0.85,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.9865913391113281,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.85}"
+    },
+    {
+      "index": 483,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 10.320456504821777,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 484,
+      "predicted": "C",
+      "confidence": 0.85,
+      "gold": "C",
+      "correct": true,
+      "score": 1.0,
+      "latency": 1.0191853046417236,
+      "raw_response": "{\"answer\": \"C\", \"confidence\": 0.85}"
+    },
+    {
+      "index": 485,
+      "predicted": "B",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.5905659198760986,
+      "raw_response": "{\"answer\": \"B\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 486,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.2845675945281982,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 487,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.1464526653289795,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 488,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.9744329452514648,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 489,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.8109357357025146,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 490,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.8703157901763916,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 491,
+      "predicted": "A",
+      "confidence": 0.85,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0410683155059814,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.85}"
+    },
+    {
+      "index": 492,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0371453762054443,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 493,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0456719398498535,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 494,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0899055004119873,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 495,
+      "predicted": "A",
+      "confidence": 0.9,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.0697553157806396,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.9}"
+    },
+    {
+      "index": 496,
+      "predicted": "A",
+      "confidence": 1.0,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 2.0783610343933105,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 1.0}"
+    },
+    {
+      "index": 498,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 1.216064691543579,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    },
+    {
+      "index": 499,
+      "predicted": "A",
+      "confidence": 0.95,
+      "gold": "C",
+      "correct": false,
+      "score": 0.0,
+      "latency": 0.8268208503723145,
+      "raw_response": "{\"answer\": \"A\", \"confidence\": 0.95}"
+    }
+  ],
+  "errors": [
+    "Task 243: AttributeError: 'NoneType' object has no attribute 'strip'",
+    "Task 315: AttributeError: 'NoneType' object has no attribute 'strip'",
+    "Task 497: AttributeError: 'NoneType' object has no attribute 'strip'"
+  ],
+  "total_time": 90.4996919631958
+}

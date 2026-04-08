@@ -14,6 +14,7 @@ Metrics tracked:
   - Per-subject breakdown
 """
 
+import argparse
 import asyncio
 import json
 import os
@@ -73,6 +74,7 @@ if CEREBRAS_API_KEY:
         "api_key": CEREBRAS_API_KEY,
         "api_base": "https://api.cerebras.ai/v1",
         "concurrency": 30,
+        "max_tokens": 1024,  # reasoning model needs headroom for chain-of-thought
     }
 
 BENCHMARKS = {
@@ -209,10 +211,12 @@ async def call_model(model_config: dict, question_text: str, langfuse: Langfuse)
             model=model_config["model"],
             messages=messages,
             temperature=0.0,
-            max_tokens=64,
+            max_tokens=model_config.get("max_tokens", 64),
         )
         latency = time.time() - start
-        response_text = response.choices[0].message.content.strip()
+        content = response.choices[0].message.content
+        refusal = getattr(response.choices[0].message, "refusal", None)
+        response_text = (content or refusal or "").strip()
         gen.update(
             output=response_text,
             usage_details={
@@ -311,6 +315,8 @@ async def run_benchmark_eval(
                     async with lock:
                         run.errors.append(error_msg)
                         completed += 1
+                        if len(run.errors) <= 3:
+                            print(f"  ⚠ {error_msg[:200]}")
                     span.update(level="ERROR", status_message=str(e))
 
     await asyncio.gather(*(process_task(idx, task, q) for idx, task, q in tasks_data))
@@ -366,7 +372,30 @@ async def run_benchmark_eval(
     return run
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Zero-shot evaluation runner")
+    parser.add_argument(
+        "--model", "-m",
+        type=str,
+        nargs="+",
+        choices=list(MODELS.keys()),
+        default=None,
+        help="Model(s) to evaluate (default: all). Choices: " + ", ".join(MODELS.keys()),
+    )
+    parser.add_argument(
+        "--benchmark", "-b",
+        type=str,
+        nargs="+",
+        choices=list(BENCHMARKS.keys()),
+        default=None,
+        help="Benchmark(s) to evaluate (default: all). Choices: " + ", ".join(BENCHMARKS.keys()),
+    )
+    return parser.parse_args()
+
+
 async def main():
+    args = parse_args()
+
     langfuse = Langfuse(
         secret_key=os.getenv("LANGFUSE_SECRET_KEY"),
         public_key=os.getenv("LANGFUSE_PUBLIC_KEY"),
@@ -377,8 +406,21 @@ async def main():
     results_dir = Path("eval_results")
     results_dir.mkdir(exist_ok=True)
 
-    for model_name, model_config in MODELS.items():
-        for bench_name, bench_config in BENCHMARKS.items():
+    models_to_run = {k: v for k, v in MODELS.items() if args.model is None or k in args.model}
+    benchmarks_to_run = {k: v for k, v in BENCHMARKS.items() if args.benchmark is None or k in args.benchmark}
+
+    if not models_to_run:
+        print(f"No matching models found. Available: {', '.join(MODELS.keys())}")
+        return
+    if not benchmarks_to_run:
+        print(f"No matching benchmarks found. Available: {', '.join(BENCHMARKS.keys())}")
+        return
+
+    print(f"Models: {', '.join(models_to_run.keys())}")
+    print(f"Benchmarks: {', '.join(benchmarks_to_run.keys())}")
+
+    for model_name, model_config in models_to_run.items():
+        for bench_name, bench_config in benchmarks_to_run.items():
             try:
                 run = await run_benchmark_eval(model_name, model_config, bench_name, bench_config, langfuse)
                 all_runs.append(run)

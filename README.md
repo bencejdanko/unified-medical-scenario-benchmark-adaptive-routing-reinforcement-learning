@@ -2,12 +2,30 @@
 
 ## QA
 
+Zero shot, {"answer": [`A,B,C,D`], "confidence"": `x.xx`} format
+
 | Evaluation | Size | 
 | --- | --- |
 | MedMCQA | 4,183 |
 | MedQA | 1,273 |
 | PubMedQA (expert-annotated) | 500 |
-| MMLU-Medical | 1,871 |
+| MMLU-Medical (9 MMLU subjects) | 1,871 |
+
+| Evaluation | Model | Accuracy | F1-Macro | ECE |
+| --- | --- | --- | --- | --- |
+| MedQA | gemini-flash-preview | 0.9442 | 0.9438 | 0.0332 |
+| MedQA | gemma-4-31b-it | 0.8409 | 0.8394 | 0.1344 |
+| MedQA | gpt-oss-120b | 0.9018 | 0.906 | 0.0632 |
+| MedMCQA | gemini-flash-preview | 0.8505 | 0.8499 | 0.1047 |
+| MedMCQA | gemma-4-31b-it | 0.7496 | 0.7475 | 0.2104 |
+| MedMCQA | gpt-oss-120b | 0.7352 | 0.7377 | 0.1923 |
+| PubMedQA | gemini-flash-preview | 0.8048 | 0.6238 | 0.1443 |
+| PubMedQA | gemma-4-31b-it | 0.7940 | 0.5901 | 0.1709 |
+| PubMedQA | gpt-oss-120b | 0.6680 | 0.5800 | 0.2241 |
+| MMLU-Medical | gemini-flash-preview | 0.9221 | 0.9198 | 0.0483 |
+| MMLU-Medical | gemma-4-31b-it | 0.8938 | 0.8914 | 0.0868 |
+| MMLU-Medical | gpt-oss-120b | 0.8859 | 0.8866 | 0.0819 |
+
 
 | Evaluation | Model | Score |
 | --- | --- | --- |
