@@ -1,0 +1,9 @@
+  System: You are a medical expert. Answer the following medical question using the provided reference materials when relevant. If...
+  User prompt (5768 chars, 5 references):
+    Use the following medical references to help answer the question. If the references are not relevant, rely on your own knowledge.
+    
+    --- Reference 1 ([pubmed] Pediatric plastic surgery.) ---
+    Each section of this article has been discussed in severe brevity. Potential pitfalls have been expanded in an attempt to be helpful to the general surgeon who attends patients with these clinical problems. Making the relatives aware of a potential complication in its broadest sense is the responsibility of the surgeon and can only be done if there is cognizance of these problems. The author hopes that this article has accomplished this purpose, albeit in a brief format.
+    
+    --- Reference 2 ([textbooks] Surgery_Schwartz) ---
+    Surg (Oakv). 2015;23(2):87-90. 23. Higgins A, Lalonde DH, Bell M, McKee D, Lalonde JF. Avoiding flexor tendon repair rupture with intraoperative total active movement examination. Plast Reconstr Surg. 2010; 126(3):941-945. 24. Davison PG, Cobb T, Lalonde DH. The patient’s perspective on carpal tunnel surgery related to the type of anesthesia: a prospective cohort study. Hand (N Y). 2013;8(1):47-53. 25. Rodgers J, Cunningham K, Fitzgerald K, Finnerty E. Opioid consumption following outpatient upper extremity surgery. J Hand Surg Am. 2012;37(4):645-650. 26. Stanek JJ, Renslow MA, Kalliainen LK. The effect of an educational program on opioid prescription patterns in hand surgery: a quality improvement program. J Hand Surg Am. 2015;40(2):341-346. 27. Komatsu S, Tamai S. Succes

@@ -1,0 +1,9 @@
+{
+  "embedding_model": "NeuML/pubmedbert-base-embeddings",
+  "embedding_dim": 768,
+  "num_chunks": 386813,
+  "sources": {
+    "textbooks": 125689,
+    "pubmed": 261124
+  }
+}

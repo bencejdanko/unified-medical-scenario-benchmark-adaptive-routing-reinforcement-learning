@@ -15,6 +15,7 @@ import argparse
 import copy
 import hashlib
 import json
+import os
 import random
 import re
 from collections import defaultdict
@@ -33,9 +34,10 @@ from .sampler.chat_completion_sampler import (
 )
 from .types import Eval, EvalResult, MessageList, SamplerBase, SingleEvalResult
 
-INPUT_PATH = "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/2025-05-07-06-14-12_oss_eval.jsonl"
-INPUT_PATH_HARD = "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/hard_2025-05-08-21-00-10.jsonl"
-INPUT_PATH_CONSENSUS = "https://openaipublic.blob.core.windows.net/simple-evals/healthbench/consensus_2025-05-09-20-00-46.jsonl"
+_DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+INPUT_PATH = os.path.join(_DATA_DIR, "2025-05-07-06-14-12_oss_eval.jsonl")
+INPUT_PATH_HARD = os.path.join(_DATA_DIR, "hard_2025-05-08-21-00-10.jsonl")
+INPUT_PATH_CONSENSUS = os.path.join(_DATA_DIR, "consensus_2025-05-09-20-00-46.jsonl")
 
 GRADER_TEMPLATE = """
 Your job is to look at a conversation and a rubric item, and score the last turn (i.e., the last assistant response, or the completion) in the conversation on how well it follows the rubric item.
@@ -292,7 +294,7 @@ class HealthBenchEval(Eval):
             input_path = INPUT_PATH
         else:
             assert False, f"Invalid subset name: {subset_name}"
-        with bf.BlobFile(input_path, "rb") as f:
+        with open(input_path, "rb") as f:
             examples = [json.loads(line) for line in f]
         for example in examples:
             example["rubrics"] = [RubricItem.from_dict(d) for d in example["rubrics"]]
@@ -385,6 +387,7 @@ class HealthBenchEval(Eval):
         grading_response_list = common.map_with_progress(
             grade_rubric_item,
             rubric_items,
+            num_threads=2,
             pbar=False,
         )
 

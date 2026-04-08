@@ -1,0 +1,9 @@
+[
+  {
+    "model": "gemma-4-31b-it",
+    "benchmark": "healthbench_hard",
+    "overall_score": 0.3610961532566385,
+    "num_examples": 50,
+    "total_time_s": 1188.1888258457184
+  }
+]

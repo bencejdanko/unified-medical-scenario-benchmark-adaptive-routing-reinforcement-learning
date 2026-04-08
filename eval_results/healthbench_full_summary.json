@@ -1,0 +1,9 @@
+[
+  {
+    "model": "gemini-3-flash-preview",
+    "benchmark": "healthbench_full",
+    "overall_score": 0.41908045977011493,
+    "num_examples": 2,
+    "total_time_s": 18.4999041557312
+  }
+]
