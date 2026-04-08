@@ -42,7 +42,7 @@ class MedAgentBenchTask(Task):
    _task_id: str = PrivateAttr()
    _done: bool = PrivateAttr(default=False)
    _history: List[Dict[str, Any]] = PrivateAttr(default_factory=list)
-   _fhir_api_base: str = PrivateAttr(default="http://localhost:8080/api/")
+   _fhir_api_base: str = PrivateAttr(default="http://localhost:8080/fhir/")
 
    def __init__(self, data: Dict[str, Any], tools: List[Dict[str, Any]], task_id: str, **kwargs):
        if "metadata" not in kwargs:

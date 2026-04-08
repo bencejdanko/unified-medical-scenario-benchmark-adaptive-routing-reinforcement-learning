@@ -8,7 +8,7 @@ from typing import Dict, Any, List
 
 app = Server("medical-mcp-server")
 
-FHIR_API_BASE = os.getenv("FHIR_API_BASE", "http://localhost:8080/api/")
+FHIR_API_BASE = os.getenv("FHIR_API_BASE", "http://localhost:8080/fhir/")
 
 def load_schema():
     schema_path = "medagentbench_cube/data/medagentbench/funcs_v1.json"
