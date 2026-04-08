@@ -18,8 +18,6 @@ git clone https://github.com/bencejdanko/cube-standard
 
 # then install it directly
 pip install -e cube-standard
-
-# install streamlit for exploring the 
 ```
 
 ### MedAgentBench
@@ -38,4 +36,49 @@ docker run -d --name medagentbench_server -p 8080:8080 medagentbench
 
 ### HealthBench
 
-HealthBench []
+HealthBench [] (TODO)
+
+5000 samples of questions, with corresponding rubrics.
+
+### Additional QA Benchmarks to test
+
+from `openlifescienceai` on huggingface:
+
+- MedQA (must convert to CUBE)
+- MedMCQA (must convert to CUBE)
+- PubMedQA (must convert to CUBE)
+- MMLU (Medical Subset) (must convert to CUBE)
+
+Possible corpus: 
+
+- PubMed
+- UMLS
+- SOTA needed
+
+Unsure if maybe useful (needs manual labor/effort/scrape):
+- Clinical Guidelines (https://www.guidelinecentral.com/guidelines/)
+- MedlinePlus
+- ClinicalTrials.gov
+
+Goal:
+
+Compare:
+
+- For QA: Baseline prompting (zero shot)
+- For QA: RAG without adaption (naive)
+- For QA: Compare RAG against existing tool calling frameworks (pure MCP). Also compare against Bash (letting agent loose on just raw files).
+- For Agent: Compare with randomized noisy tools (MCP, original 9, -> 20 -> 50), seeing if adding more noisy tools degrades performance on these models.
+
+Target models:
+
+`gemini/gemini-3-flash-preview` (OpenRouter)
+`google/gemma-4-31b-it` (OpenRouter)
+`gpt-oss-120b` (Cerebras)
+
+For noisy tools, let's download the `Nanbeige/ToolMind` repository. inside are random synthetic - sometimes relevant - tools we can use as noise. 
+
+Use LangFuse for full traceability. Secrets set in `.env`. The idea is we eventually use the Langfuse "Datasets" feature to convert annotated traces into your training data for fine tuned model iterations.
+
+My HF token is available locally at HF_TOKEN - use this to synchronize datasets. 
+
+Use the modal CLI to run heavy preprocessing jobs if necessary. Ensure synchronization with HuggingFace. HuggingFace key available at secrets=[modal.Secret.from_name("my-huggingface-secret")], for example.
