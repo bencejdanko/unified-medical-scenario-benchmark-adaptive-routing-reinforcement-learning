@@ -1,6 +1,13 @@
 # medqa-cube-adaptive-curriculum-tool-calling
 
-##
+## QA
+
+| Evaluation | Size | 
+| --- | --- |
+| MedMCQA | 4,183 |
+| MedQA | 1,273 |
+| PubMedQA (expert-annotated) | 500 |
+| MMLU-Medical | 1,871 |
 
 | Evaluation | Model | Score |
 | --- | --- | --- |
