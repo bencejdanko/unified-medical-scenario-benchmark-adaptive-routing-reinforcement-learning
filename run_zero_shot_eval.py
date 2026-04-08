@@ -84,8 +84,9 @@ BENCHMARKS = {
 
 ZERO_SHOT_SYSTEM_PROMPT = (
     "You are a medical expert. Answer the following medical question. "
-    "Respond with ONLY the letter of the correct answer (e.g., 'A', 'B', 'C', or 'D'). "
-    "Do not include explanations."
+    "Respond with ONLY valid JSON in this exact format: {\"answer\": \"X\", \"confidence\": Y} "
+    "where X is the letter of the correct answer (A, B, C, or D) and Y is your confidence "
+    "as a decimal between 0.0 and 1.0. Do not include explanations or any other text."
 )
 
 # --- Metrics ---
@@ -136,14 +137,30 @@ def compute_ece(results: list[dict], n_bins: int = 10) -> float:
     return float(ece)
 
 
-def extract_answer_letter(response_text: str) -> str:
+def parse_model_response(response_text: str) -> tuple[str, float]:
+    """Parse JSON response to extract answer letter and confidence score."""
     text = response_text.strip()
+    # Try JSON parse first
+    try:
+        parsed = json.loads(text)
+        answer = str(parsed.get("answer", "")).strip().upper()
+        confidence = float(parsed.get("confidence", 0.5))
+        confidence = max(0.0, min(1.0, confidence))
+        if answer and answer[0] in "ABCD":
+            return answer[0], confidence
+    except (json.JSONDecodeError, ValueError, TypeError):
+        pass
+    # Fallback: try to extract JSON from surrounding text
+    json_match = re.search(r'\{[^}]*"answer"\s*:\s*"([A-D])"[^}]*"confidence"\s*:\s*([\d.]+)[^}]*\}', text)
+    if json_match:
+        return json_match.group(1), max(0.0, min(1.0, float(json_match.group(2))))
+    # Last resort: extract just the letter, assign default confidence
     match = re.search(r'\b([A-D])\b', text)
     if match:
-        return match.group(1)
+        return match.group(1), 0.5
     if text and text[0].upper() in "ABCD":
-        return text[0].upper()
-    return text[:1].upper() if text else ""
+        return text[0].upper(), 0.5
+    return (text[:1].upper() if text else ""), 0.5
 
 
 # --- Evaluation Loop ---
@@ -192,7 +209,7 @@ async def call_model(model_config: dict, question_text: str, langfuse: Langfuse)
             model=model_config["model"],
             messages=messages,
             temperature=0.0,
-            max_tokens=16,
+            max_tokens=64,
         )
         latency = time.time() - start
         response_text = response.choices[0].message.content.strip()
@@ -257,13 +274,14 @@ async def run_benchmark_eval(
             ) as span:
                 try:
                     response_text, latency = await call_model(model_config, question_text, langfuse)
-                    predicted = extract_answer_letter(response_text)
+                    predicted, confidence = parse_model_response(response_text)
                     result = task.step(Action(name="answer", arguments={"content": predicted}))
                     is_correct = result.reward > 0.5
 
                     result_dict = {
                         "index": idx,
                         "predicted": predicted,
+                        "confidence": confidence,
                         "gold": result.info.get("correct", ""),
                         "correct": is_correct,
                         "score": result.reward,
