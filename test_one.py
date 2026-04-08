@@ -72,7 +72,7 @@ def test_healthbench():
 def test_medagentbench():
     print("\n--- Testing MedAgentBench ---")
     benchmark = MedAgentBenchBenchmark(
-        data_path="medagentbench_cube/data/medagentbench/test_data_v1.json",
+        data_path="medagentbench_cube/data/medagentbench/test_data_v2.json",
         func_path="medagentbench_cube/data/medagentbench/funcs_v1.json"
     )
     task = benchmark.get_task(0)

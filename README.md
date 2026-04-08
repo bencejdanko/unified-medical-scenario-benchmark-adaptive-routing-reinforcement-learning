@@ -11,6 +11,8 @@
 
 ### MedAgentBench
 
+MedAgentBench [@jiang2025medagentbenchrealisticvirtualehr] has over 300 tasks across the 10 categories. It consists of a docker server containing data for the realistic profiles of 100 patients, and 700,000 data elements relevant to the tasks.
+
 Ensure you pull the patient data needed first:
 
 ```bash
