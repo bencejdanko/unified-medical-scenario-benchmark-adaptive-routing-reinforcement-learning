@@ -55,10 +55,7 @@ class HealthBenchTask(Task):
         self._data = data
         self._done = False
         
-        clean_url = OPENAI_API_URL
-        if clean_url and clean_url.endswith("/chat/completions"):
-            clean_url = clean_url[:-len("/chat/completions")]
-        self._grader_client = OpenAI(base_url=clean_url, api_key=OPENAI_API_KEY)
+        self._grader_client = None
 
     def reset(self) -> Tuple[Observation, Dict[str, Any]]:
         self._done = False
@@ -80,6 +77,16 @@ class HealthBenchTask(Task):
             return 0.0
         
         achieved = 0.0
+        if self._grader_client is None:
+            clean_url = OPENAI_API_URL
+            if clean_url and clean_url.endswith("/chat/completions"):
+                clean_url = clean_url[:-len("/chat/completions")]
+            
+            if not OPENAI_API_KEY:
+                raise ValueError("OPENAI_API_KEY is not set. Grading requires an API key.")
+                
+            self._grader_client = OpenAI(base_url=clean_url, api_key=OPENAI_API_KEY)
+
         for item in rubric_items:
             prompt = GRADER_TEMPLATE.replace("<<conversation>>", convo_str).replace("<<rubric_item>>", item["criterion"])
             try:

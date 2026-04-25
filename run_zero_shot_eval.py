@@ -74,7 +74,7 @@ if CEREBRAS_API_KEY:
         "api_key": CEREBRAS_API_KEY,
         "api_base": "https://api.cerebras.ai/v1",
         "concurrency": 30,
-        "max_tokens": 1024,  # reasoning model needs headroom for chain-of-thought
+        "max_tokens": 1024,
     }
 
 BENCHMARKS = {

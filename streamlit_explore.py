@@ -70,7 +70,12 @@ if "current_task_idx" not in st.session_state:
 if "current_benchmark" not in st.session_state:
     st.session_state.current_benchmark = benchmark_type
 
-# Reset history if benchmark or task changes
+# Reset state if benchmark changes
+if benchmark_type != st.session_state.current_benchmark:
+    st.session_state.current_benchmark = benchmark_type
+    st.session_state.current_task_idx = 0
+    st.session_state.history = []
+
 def reset_history():
     st.session_state.history = []
 
@@ -94,11 +99,18 @@ with col1:
     st.header("Search Tasks")
     total_tasks = len(benchmark)
     
-    new_task_idx = st.number_input("Task Index", min_value=0, max_value=total_tasks-1, value=st.session_state.current_task_idx)
+    # Ensure current_task_idx is within bounds for the current benchmark
+    st.session_state.current_task_idx = max(0, min(st.session_state.current_task_idx, total_tasks - 1))
     
-    if new_task_idx != st.session_state.current_task_idx or benchmark_type != st.session_state.current_benchmark:
+    new_task_idx = st.number_input(
+        "Task Index", 
+        min_value=0, 
+        max_value=total_tasks-1, 
+        value=st.session_state.current_task_idx
+    )
+    
+    if new_task_idx != st.session_state.current_task_idx:
         st.session_state.current_task_idx = new_task_idx
-        st.session_state.current_benchmark = benchmark_type
         reset_history()
         st.rerun()
     
