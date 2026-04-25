@@ -1,4 +1,4 @@
-# medqa-cube-adaptive-curriculum-tool-calling
+# Unified Medical Scenario Benchmark: Training an Adaptive Routing LLM Framework with Reinforcement Learning
 
 ## QA
 
