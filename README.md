@@ -1,5 +1,21 @@
 # Unified Medical Scenario Benchmark: Training an Adaptive Routing LLM Framework with Reinforcement Learning
 
+In recent years, several major NLP and LLM-focused benchmarks have emerged to test language models on medical domain knowledge and proficiency. Early medical benchmarks and datasets were based on zero-shot, one turn question-answering (QA) [^1]. However, for practical medical enviroment use, new evaluation frameworks have emerged that test not just factuality, but strict guardrail alignment [^2], and real-world medical systems interaction (automated tool use) [^3].
+
+Despite the growing breadth of evaluation frameworks, the community has not yet adopted one single, unified technical approach to conducting reproducible evaluations. CUBE [^4] is one such proposed library standard, in which incompatible benchmarks are meant to be wrapped uniformly used anywhere.
+
+There is a practical research need for such a unified, multi-scenario benchmark. In practical applied LLM systems, for economic needs, engineers are creating router-based LLM orchestrations that route requests based on request needs. Simple queries routing to less powerful but capable models, and more complex requests need to be allocated to more powerful agentic harnesses.
+
+This implementation attempts not only to unify these benchmarks for the purposes of demonstrating the utility of CUBE wrapper, but also it's practical and industry-relevant purpose in training economic LLM systems, not just powerful model benchmarking.
+
+[^1]: MedMCQA, MedQA, PubMedQA, MMLU (Medical sets)
+[^2]: Healthbench (OpenAI)
+[^3]: MedAgentBench (Stanford)
+
+Mid Progress Slide Deck:
+
+https://docs.google.com/presentation/d/1MtnFUPUmQn5fVKny17UsET8ZU8APDlzg6u4PLNv_DAE/edit?usp=sharing
+
 ## QA
 
 Zero shot, {"answer": [`A,B,C,D`], "confidence"": `x.xx`} format
