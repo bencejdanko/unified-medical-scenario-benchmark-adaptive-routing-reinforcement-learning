@@ -1,6 +1,6 @@
 # Unified Medical Scenario Benchmark: Training an Adaptive Routing LLM Framework with Reinforcement Learning
 
-In recent years, several major NLP and LLM-focused benchmarks have emerged to test language models on medical domain knowledge and proficiency. Early medical benchmarks and datasets were based on zero-shot, one turn question-answering (QA) [^1]. However, for practical medical enviroment use, new evaluation frameworks have emerged that test not just factuality, but strict guardrail alignment [^2], and real-world medical systems interaction (automated tool use) [^3].
+In recent years, several major NLP and LLM-focused benchmarks have emerged to test language models on medical domain knowledge and proficiency. Early medical benchmarks and datasets were based on zero-shot, one turn question-answering (QA) [^1]. However, for practical medical enviroment use, new evaluation frameworks have emerged that test not just factuality, but strict human-aligned guardrailing [^2], and real-world medical systems interaction (automated tool use) [^3].
 
 Despite the growing breadth of evaluation frameworks, the community has not yet adopted one single, unified technical approach to conducting reproducible evaluations. CUBE [^4] is one such proposed library standard, in which incompatible benchmarks are meant to be wrapped uniformly used anywhere.
 
