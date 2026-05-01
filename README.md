@@ -63,6 +63,42 @@ Zero shot, {"answer": [`A,B,C,D`], "confidence"": `x.xx`} format
 | gemma-4-31b-it | 0.3611 |
 | gpt-oss-120b | 0.4129 | 
 
+## Unified Benchmark Framework
+
+This repository now includes a unified CUBE-compatible benchmark layer in `unified_medical_benchmark/`.
+
+The unified benchmark is designed as a benchmark product, not a routing policy. It preserves the existing CUBE wrappers for MedQA, MedMCQA, PubMedQA, MMLU-Medical, HealthBench, and MedAgentBench, then composes them behind one shared interface suitable for future adaptive routing experiments.
+
+The framework adds:
+
+- **Scenario metadata**: every task receives a normalized `scenario_metadata` payload with benchmark name, source task ID, scenario type, clinical domain, complexity, answer format, category, and operational requirements.
+- **Complexity/category awareness**: QA, literature-grounded QA, rubric-scored conversation, and EHR tool-use tasks can be stratified before any router is implemented.
+- **Reward preservation**: each source CUBE wrapper remains responsible for native scoring, so exact-match QA, rubric grading, and tool-use task scoring are not reimplemented in the unified layer.
+- **Step tracking**: every call to `step()` records action name, action arguments, reward, done state, elapsed time, source info, and cumulative trace history in `EnvironmentOutput.info`.
+- **Stable task identity**: unified task IDs use `<benchmark>::<source_task_id>`, allowing benchmark-level aggregation and source-level debugging.
+
+Example:
+
+```python
+from cube.core import Action
+from unified_medical_benchmark import build_benchmark
+
+bench = build_benchmark(
+    benchmark_names=["medqa", "medmcqa", "pubmedqa", "mmlu_medical"],
+    num_examples_per_benchmark=10,
+)
+
+task = bench.get_task(0)
+obs, info = task.reset()
+print(info["scenario_metadata"])
+
+result = task.step(Action(name="answer", arguments={"content": "A"}))
+print(result.reward)
+print(result.info["step_records"])
+```
+
+See `unified_medical_benchmark/README.md` for the architecture, taxonomy, runtime requirements, and CUBE integration details.
+
 
 ## Requirements
 
@@ -106,16 +142,10 @@ from `openlifescienceai` on huggingface:
 - PubMedQA (must convert to CUBE)
 - MMLU (Medical Subset) (must convert to CUBE)
 
-Possible corpus: 
+Corpus: 
 
 - PubMed
 - UMLS
-- SOTA needed
-
-Unsure if maybe useful (needs manual labor/effort/scrape):
-- Clinical Guidelines (https://www.guidelinecentral.com/guidelines/)
-- MedlinePlus
-- ClinicalTrials.gov
 
 Goal:
 
