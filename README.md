@@ -12,6 +12,10 @@ This implementation attempts not only to unify these benchmarks for the purposes
 [^2]: Healthbench (OpenAI)
 [^3]: MedAgentBench (Stanford)
 
+Final Technical Report:
+
+https://docs.google.com/document/d/1n87w2gb8m_BC_6A8TrfDWjRd5XLC7Yojs5J0buq73Js/edit?usp=sharing
+
 Mid Progress Slide Deck:
 
 https://docs.google.com/presentation/d/1MtnFUPUmQn5fVKny17UsET8ZU8APDlzg6u4PLNv_DAE/edit?usp=sharing
