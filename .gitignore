@@ -1,3 +1,10 @@
 data
 __pycache__
 .env
+
+hf_out/
+eval_results/unified*/
+eval_results_rag/
+
+refsol.py
+medagentbench_cube/src/server/tasks/medagentbench/refsol.py
