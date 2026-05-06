@@ -188,3 +188,9 @@ modal run modal_rag_eval.py --model gpt-oss-120b --benchmark "pubmedqa,mmlu_medi
 python run_healthbench_eval.py --model gemini-3-flash-preview --subset hard --num-examples 50
 
 ```
+
+Execute a unified run:
+
+```
+python run_unified_eval.py --split test --benchmarks mmlu_medical healthbench medagentbench --model google/gemini-3-flash-preview --judge-model google/gemini-3-flash-preview --parallelism 10 --max-openrouter-requests 10 --healthbench-grader-retries 8 --output-dir eval_results/unified_gemini3flash_test_run2 --no-reset-medagentbench --medagentbench-fhir-base https://medagentbench.openwear.ai/fhir/ --medagentbench-reset-url https://medagentbench.openwear.ai/reset --medagentbench-judge --medagentbench-judge-model google/gemini-3-flash-preview
+```
