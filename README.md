@@ -192,5 +192,54 @@ python run_healthbench_eval.py --model gemini-3-flash-preview --subset hard --nu
 Execute a unified run:
 
 ```
-python run_unified_eval.py --split test --benchmarks mmlu_medical healthbench medagentbench --model google/gemini-3-flash-preview --judge-model google/gemini-3-flash-preview --parallelism 10 --max-openrouter-requests 10 --healthbench-grader-retries 8 --output-dir eval_results/unified_gemini3flash_test_run2 --no-reset-medagentbench --medagentbench-fhir-base https://medagentbench.openwear.ai/fhir/ --medagentbench-reset-url https://medagentbench.openwear.ai/reset --medagentbench-judge --medagentbench-judge-model google/gemini-3-flash-preview
+/home/bence/miniforge3/bin/python  run_unified_eval.py --split test --benchmarks mmlu_medical healthbench medagentbench --model google/gemini-3-flash-preview --judge-model google/gemini-3-flash-preview --parallelism 10 --max-openrouter-requests 10 --healthbench-grader-retries 8 --output-dir eval_results/unified_gemini3flash_test_run2 --no-reset-medagentbench --medagentbench-fhir-base https://medagentbench.openwear.ai/fhir/ --medagentbench-reset-url https://medagentbench.openwear.ai/reset --medagentbench-judge --medagentbench-judge-model google/gemini-3-flash-preview
+```
+
+```
+/home/bence/miniforge3/bin/python run_unified_eval.py --split train --benchmarks mmlu_medical healthbench medagentbench --model google/gemini-3-flash-preview --judge-model google/gemini-3-flash-preview --parallelism 10 --max-openrouter-requests 10 --healthbench-grader-retries 8 --output-dir eval_results/unified_gemini3flash_train_ --no-reset-medagentbench --medagentbench-fhir-base https://medagentbench.openwear.ai/fhir/ --medagentbench-reset-url https://medagentbench.openwear.ai/reset --medagentbench-judge --medagentbench-judge-model google/gemini-3-flash-preview
+```
+
+router only
+
+```
+/home/bence/miniforge3/bin/python run_unified_eval.py \
+  --split test \
+  --benchmarks mmlu_medical healthbench medagentbench \
+  --model google/gemini-3-flash-preview \
+  --judge-model google/gemini-3-flash-preview \
+  --parallelism 10 \
+  --max-openrouter-requests 10 \
+  --healthbench-grader-retries 8 \
+  --output-dir eval_results/unified_router_only_test_run1 \
+  --no-reset-medagentbench \
+  --medagentbench-fhir-base https://medagentbench.openwear.ai/fhir/ \
+  --medagentbench-reset-url https://medagentbench.openwear.ai/reset \
+  --medagentbench-judge \
+  --medagentbench-judge-model google/gemini-3-flash-preview \
+  --routed \
+  --router-model-path hf_out/umsb-distilbert-router
+```
+
+router+episodic memory
+```
+/home/bence/miniforge3/bin/python run_unified_eval.py \
+  --split test \
+  --benchmarks mmlu_medical healthbench medagentbench \
+  --model google/gemini-3-flash-preview \
+  --judge-model google/gemini-3-flash-preview \
+  --parallelism 10 \
+  --max-openrouter-requests 10 \
+  --healthbench-grader-retries 8 \
+  --output-dir eval_results/unified_router_memory_test_run1 \
+  --no-reset-medagentbench \
+  --medagentbench-fhir-base https://medagentbench.openwear.ai/fhir/ \
+  --medagentbench-reset-url https://medagentbench.openwear.ai/reset \
+  --medagentbench-judge \
+  --medagentbench-judge-model google/gemini-3-flash-preview \
+  --routed \
+  --router-model-path hf_out/umsb-distilbert-router \
+  --episodic-memory-model-path hf_out/umsb-mpnet-episodic-memory \
+  --episodic-memory-chunks-path hf_out/umsb-episodic-memory/memory_chunks.jsonl \
+  --episodic-memory-embeddings-path hf_out/umsb-episodic-memory/memory_embeddings.npy \
+  --episodic-memory-top-k 3
 ```

@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import contextlib
+import copy
 import hashlib
 import importlib
 import json
@@ -40,6 +41,19 @@ DEFAULT_MODEL = "google/gemini-3-flash-preview"
 DEFAULT_API_BASE = "https://openrouter.ai/api/v1"
 DEFAULT_FHIR_BASE = "http://localhost:8080/fhir/"
 DEFAULT_RESET_URL = "http://localhost:8080/reset"
+
+ROUTER_MODEL_LABELS = [
+    "google/gemini-3-flash-preview",
+    "openai/gpt-oss-120b:nitro",
+    "google/gemma-4-31b-it",
+]
+ROUTER_PROMPT_LABELS = ["mmlu_medical_json", "healthbench_default", "medagentbench_fhir"]
+ROUTER_TOOL_LABELS = ["none", "fhir"]
+FALLBACK_MODEL_BY_BENCHMARK = {
+    "mmlu_medical": "openai/gpt-oss-120b:nitro",
+    "healthbench": "google/gemini-3-flash-preview",
+    "medagentbench": "google/gemma-4-31b-it",
+}
 
 MEDAGENTBENCH_PROMPT = """You are an expert in using FHIR functions to assist medical professionals. You are given a question and a set of possible functions. Based on the question, you will need to make one or more function/tool calls to achieve the purpose.
 
@@ -220,25 +234,223 @@ def router_context(row: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def mmlu_messages(row: dict[str, Any]) -> list[dict[str, str]]:
+def router_text(row: dict[str, Any]) -> str:
+    parts = [
+        f"benchmark: {row['benchmark']}",
+        f"scenario_type: {row.get('scenario_type', '')}",
+        f"task_family: {row.get('task_family', '')}",
+        f"is_hard: {row.get('is_hard', '')}",
+    ]
+    if row["benchmark"] == "mmlu_medical":
+        choices = parse_json_field(row, "choices_json", [])
+        parts.append(f"question: {row.get('question', '')}")
+        parts.append("choices: " + " ".join(f"{'ABCD'[idx]}. {choice}" for idx, choice in enumerate(choices)))
+    elif row["benchmark"] == "healthbench":
+        prompt = parse_json_field(row, "messages_json", [])
+        parts.append("request: " + " ".join(str(item.get("content", "")) for item in prompt if item.get("role") == "user"))
+    elif row["benchmark"] == "medagentbench":
+        parts.append(f"context: {row.get('context', '')}")
+        parts.append(f"instruction: {row.get('instruction', '')}")
+    return "\n".join(parts)
+
+
+class DistilBertRouterRuntime:
+    def __init__(self, model_path: str):
+        import torch
+        from torch import nn
+        from transformers import AutoConfig, AutoModel, AutoTokenizer
+
+        self.torch = torch
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.tokenizer = AutoTokenizer.from_pretrained(model_path)
+        config = AutoConfig.from_pretrained(model_path)
+
+        class RouterModule(nn.Module):
+            def __init__(self):
+                super().__init__()
+                self.encoder = AutoModel.from_config(config)
+                self.dropout = nn.Dropout(config.seq_classif_dropout)
+                self.model_head = nn.Linear(config.dim, 3)
+                self.tool_head = nn.Linear(config.dim, 2)
+                self.prompt_head = nn.Linear(config.dim, 3)
+
+            def forward(self, **inputs):
+                outputs = self.encoder(**inputs)
+                pooled = self.dropout(outputs.last_hidden_state[:, 0])
+                return {
+                    "model": self.model_head(pooled),
+                    "tool": self.tool_head(pooled),
+                    "prompt": self.prompt_head(pooled),
+                }
+
+        self.model = RouterModule().to(self.device)
+        state = torch.load(Path(model_path) / "pytorch_model.bin", map_location=self.device)
+        self.model.load_state_dict(state)
+        self.model.eval()
+        labels_path = Path(model_path) / "router_labels.json"
+        labels = json.loads(labels_path.read_text()) if labels_path.exists() else {}
+        self.model_labels = labels.get("model_labels", ROUTER_MODEL_LABELS)
+        self.prompt_labels = labels.get("prompt_labels", ROUTER_PROMPT_LABELS)
+        self.tool_labels = labels.get("tool_labels", ROUTER_TOOL_LABELS)
+
+    def route(self, row: dict[str, Any]) -> dict[str, Any]:
+        encoded = self.tokenizer(router_text(row), truncation=True, padding=True, max_length=384, return_tensors="pt")
+        encoded = {key: value.to(self.device) for key, value in encoded.items()}
+        with self.torch.no_grad():
+            logits = self.model(**encoded)
+        model_probs = self.torch.softmax(logits["model"], dim=-1)[0]
+        tool_probs = self.torch.softmax(logits["tool"], dim=-1)[0]
+        prompt_probs = self.torch.softmax(logits["prompt"], dim=-1)[0]
+        model_idx = int(logits["model"].argmax(dim=-1).item())
+        tool_idx = int(logits["tool"].argmax(dim=-1).item())
+        prompt_idx = int(logits["prompt"].argmax(dim=-1).item())
+        return {
+            "selected_model": self.model_labels[model_idx],
+            "selected_tool": self.tool_labels[tool_idx],
+            "selected_prompt": self.prompt_labels[prompt_idx],
+            "router_confidence": {
+                "model": float(model_probs[model_idx].item()),
+                "tool": float(tool_probs[tool_idx].item()),
+                "prompt": float(prompt_probs[prompt_idx].item()),
+            },
+            "router_probabilities": {
+                "model": {label: float(model_probs[idx].item()) for idx, label in enumerate(self.model_labels)},
+                "tool": {label: float(tool_probs[idx].item()) for idx, label in enumerate(self.tool_labels)},
+                "prompt": {label: float(prompt_probs[idx].item()) for idx, label in enumerate(self.prompt_labels)},
+            },
+            "router_source": "distilbert",
+        }
+
+
+def fallback_route(row: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "selected_model": FALLBACK_MODEL_BY_BENCHMARK[row["benchmark"]],
+        "selected_tool": "fhir" if row["benchmark"] == "medagentbench" else "none",
+        "selected_prompt": {
+            "mmlu_medical": "mmlu_medical_json",
+            "healthbench": "healthbench_default",
+            "medagentbench": "medagentbench_fhir",
+        }[row["benchmark"]],
+        "router_confidence": {"model": 1.0, "tool": 1.0, "prompt": 1.0},
+        "router_source": "fallback_policy",
+    }
+
+
+def route_row(row: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:
+    router = getattr(args, "router_runtime", None)
+    if router is not None:
+        try:
+            return router.route(row)
+        except Exception as exc:
+            route = fallback_route(row)
+            route["router_error"] = str(exc)
+            return route
+    return fallback_route(row)
+
+
+class EpisodicMemoryRuntime:
+    def __init__(
+        self,
+        model_path: str,
+        top_k: int,
+        dataset_path: str | None = None,
+        chunks_path: str | None = None,
+        embeddings_path: str | None = None,
+    ):
+        import numpy as np
+        from sentence_transformers import SentenceTransformer
+
+        self.np = np
+        self.model = SentenceTransformer(model_path)
+        self.top_k = top_k
+        if chunks_path and embeddings_path:
+            self.rows = []
+            with Path(chunks_path).open() as f:
+                for line in f:
+                    self.rows.append(json.loads(line))
+            self.embeddings = np.load(embeddings_path).astype(np.float32)
+            return
+
+        if not dataset_path:
+            raise ValueError("Either chunks/embeddings paths or dataset_path must be provided for episodic memory.")
+        from datasets import load_from_disk
+
+        ds = load_from_disk(dataset_path)
+        split = ds["train"] if hasattr(ds, "keys") and "train" in ds else ds
+        self.rows = [dict(row) for row in split if row.get("text")]
+        texts = [row["text"] for row in self.rows]
+        self.embeddings = self.model.encode(texts, normalize_embeddings=True, show_progress_bar=False) if texts else None
+
+    def retrieve(self, row: dict[str, Any]) -> list[dict[str, Any]]:
+        if not self.rows or self.embeddings is None:
+            return []
+        query = router_text(row)
+        query_vec = self.model.encode([query], normalize_embeddings=True, show_progress_bar=False)[0]
+        scores = self.embeddings @ query_vec
+        order = self.np.argsort(-scores)[: self.top_k]
+        memories = []
+        for idx in order:
+            memory = dict(self.rows[int(idx)])
+            memory["score"] = float(scores[int(idx)])
+            memories.append(memory)
+        return memories
+
+
+def episodic_memory_block(row: dict[str, Any], args: argparse.Namespace) -> str:
+    memory = getattr(args, "episodic_memory_runtime", None)
+    if memory is None:
+        return ""
+    try:
+        memories = memory.retrieve(row)
+    except Exception:
+        return ""
+    row["_episodic_memory_retrieval"] = [
+        {
+            "id": item.get("id"),
+            "task_id": item.get("task_id"),
+            "benchmark": item.get("benchmark"),
+            "model": item.get("model"),
+            "reward": item.get("reward"),
+            "score": item.get("score"),
+            "chunk_index": item.get("chunk_index"),
+        }
+        for item in memories
+    ]
+    if not memories:
+        return ""
+    lines = [
+        "Relevant lessons from prior failed attempts. Use these as general guidance only; do not copy task-specific answers."
+    ]
+    for idx, item in enumerate(memories, start=1):
+        text = str(item.get("text", "")).strip()
+        if len(text) > 1200:
+            text = text[:1200] + "..."
+        lines.append(f"Memory {idx} (score={item.get('score', 0.0):.3f}):\n{text}")
+    return "\n\n".join(lines)
+
+
+def mmlu_messages(row: dict[str, Any], memory_block: str = "") -> list[dict[str, str]]:
     choices = parse_json_field(row, "choices_json", [])
     body = row["question"] + "\n\n"
     for idx, choice in enumerate(choices):
         body += f"{'ABCD'[idx]}. {choice}\n"
+    system_content = (
+        "You are a medical expert. Return ONLY valid JSON in this exact format: "
+        "{\"answer\":\"A\",\"confidence\":0.0}. The answer must be A, B, C, or D."
+    )
+    if memory_block:
+        system_content += "\n\n" + memory_block
     return [
         {
             "role": "system",
-            "content": (
-                "You are a medical expert. Return ONLY valid JSON in this exact format: "
-                "{\"answer\":\"A\",\"confidence\":0.0}. The answer must be A, B, C, or D."
-            ),
+            "content": system_content,
         },
         {"role": "user", "content": body},
     ]
 
 
 def run_mmlu(row: dict[str, Any], client: OpenAI, args: argparse.Namespace, run_id: str) -> EpisodeResult:
-    messages = mmlu_messages(row)
+    messages = mmlu_messages(row, episodic_memory_block(row, args))
     start = time.time()
     raw, meta = call_chat(
         client,
@@ -277,6 +489,9 @@ def run_mmlu(row: dict[str, Any], client: OpenAI, args: argparse.Namespace, run_
 
 def run_healthbench(row: dict[str, Any], client: OpenAI, judge_client: OpenAI, args: argparse.Namespace, run_id: str) -> EpisodeResult:
     prompt = parse_json_field(row, "messages_json", [])
+    memory_block = episodic_memory_block(row, args)
+    if memory_block:
+        prompt = [{"role": "system", "content": memory_block}] + prompt
     rubrics = [RubricItem.from_dict(item) for item in parse_json_field(row, "rubrics_json", [])]
     example_tags = parse_json_field(row, "router_metadata_json", {}).get("example_tags", [])
     start = time.time()
@@ -535,13 +750,15 @@ def run_medagentbench(row: dict[str, Any], client: OpenAI, args: argparse.Namesp
         reset_info = reset_medagentbench(args.medagentbench_reset_url, args.medagentbench_reset_timeout)
         reset_latency_s = time.time() - reset_start
     tools = parse_json_field(row, "tools_json", [])
+    memory_block = episodic_memory_block(row, args)
+    context = row["context"] + ("\n\n" + memory_block if memory_block else "")
     messages = [
         {
             "role": "user",
             "content": MEDAGENTBENCH_PROMPT.format(
                 api_base=fhir_base,
                 functions=json.dumps(tools),
-                context=row["context"],
+                context=context,
                 question=row["instruction"],
             ),
         }
@@ -825,15 +1042,119 @@ def summarize_usage(results: list[EpisodeResult]) -> dict[str, Any]:
     return {"total": total, "by_benchmark": by_benchmark}
 
 
+def mean(values: list[float]) -> float | None:
+    return sum(values) / len(values) if values else None
+
+
+def summarize_routing(results: list[EpisodeResult]) -> dict[str, Any]:
+    routed = [result for result in results if isinstance(result.router_context, dict) and result.router_context.get("selected_model")]
+    if not routed:
+        return {}
+    by_selected_model: dict[str, list[EpisodeResult]] = {}
+    by_prompt: dict[str, int] = {}
+    by_tool: dict[str, int] = {}
+    by_source: dict[str, int] = {}
+    confusion: dict[str, dict[str, int]] = {}
+    memory_counts: list[float] = []
+    memory_scores: list[float] = []
+    confidences: dict[str, list[float]] = {"model": [], "tool": [], "prompt": []}
+
+    for result in routed:
+        context = result.router_context
+        selected_model = str(context.get("selected_model"))
+        by_selected_model.setdefault(selected_model, []).append(result)
+        selected_prompt = str(context.get("selected_prompt", "unknown"))
+        selected_tool = str(context.get("selected_tool", "unknown"))
+        router_source = str(context.get("router_source", "unknown"))
+        by_prompt[selected_prompt] = by_prompt.get(selected_prompt, 0) + 1
+        by_tool[selected_tool] = by_tool.get(selected_tool, 0) + 1
+        by_source[router_source] = by_source.get(router_source, 0) + 1
+        confusion.setdefault(result.benchmark, {})
+        confusion[result.benchmark][selected_model] = confusion[result.benchmark].get(selected_model, 0) + 1
+
+        confidence = context.get("router_confidence")
+        if isinstance(confidence, dict):
+            for key in confidences:
+                value = confidence.get(key)
+                if isinstance(value, int | float):
+                    confidences[key].append(float(value))
+
+        memories = context.get("episodic_memory_retrieval")
+        if isinstance(memories, list):
+            memory_counts.append(float(len(memories)))
+            for memory in memories:
+                if isinstance(memory, dict) and isinstance(memory.get("score"), int | float):
+                    memory_scores.append(float(memory["score"]))
+
+    selected_model_summary = {}
+    for selected_model, items in by_selected_model.items():
+        scored = [item for item in items if item.reward is not None]
+        latencies = [float(item.latency_s) for item in items if item.latency_s is not None]
+        usage = {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "cost": 0.0,
+            "usage_records": 0,
+        }
+        for item in items:
+            item_usage = usage_from_result(item)
+            for key, value in item_usage.items():
+                usage[key] += value
+        selected_model_summary[selected_model] = {
+            "n": len(items),
+            "scored_n": len(scored),
+            "mean_reward": mean([float(item.reward) for item in scored]),
+            "failures": sum(1 for item in scored if item.reward == 0.0),
+            "latency_s_mean": mean(latencies),
+            "usage": usage,
+        }
+
+    return {
+        "routed_n": len(routed),
+        "selected_model_counts": {key: len(value) for key, value in by_selected_model.items()},
+        "selected_prompt_counts": by_prompt,
+        "selected_tool_counts": by_tool,
+        "router_source_counts": by_source,
+        "benchmark_to_selected_model_counts": confusion,
+        "selected_model_summary": selected_model_summary,
+        "model_diversity": {
+            "unique_selected_models": len(by_selected_model),
+            "selected_model_share": {key: len(value) / len(routed) for key, value in by_selected_model.items()},
+        },
+        "router_confidence_mean": {key: mean(values) for key, values in confidences.items()},
+        "episodic_memory": {
+            "enabled_n": len(memory_counts),
+            "mean_retrieved": mean(memory_counts),
+            "mean_similarity": mean(memory_scores),
+        },
+    }
+
+
 def run_one(row: dict[str, Any], client: OpenAI, judge_client: OpenAI, args: argparse.Namespace, run_id: str) -> EpisodeResult:
     try:
+        original_model = args.model
+        route: dict[str, Any] | None = None
+        if args.routed:
+            route = route_row(row, args)
+            args = copy.copy(args)
+            args.model = route["selected_model"]
         if row["benchmark"] == "mmlu_medical":
-            return run_mmlu(row, client, args, run_id)
-        if row["benchmark"] == "healthbench":
-            return run_healthbench(row, client, judge_client, args, run_id)
-        if row["benchmark"] == "medagentbench":
-            return run_medagentbench(row, client, args, run_id)
-        raise ValueError(f"Unsupported benchmark: {row['benchmark']}")
+            result = run_mmlu(row, client, args, run_id)
+        elif row["benchmark"] == "healthbench":
+            result = run_healthbench(row, client, judge_client, args, run_id)
+        elif row["benchmark"] == "medagentbench":
+            result = run_medagentbench(row, client, args, run_id)
+        else:
+            raise ValueError(f"Unsupported benchmark: {row['benchmark']}")
+        if route is not None:
+            result.router_context = {
+                **result.router_context,
+                **route,
+                "default_model": original_model,
+                "episodic_memory_retrieval": row.get("_episodic_memory_retrieval", []),
+            }
+        return result
     except Exception as exc:
         return EpisodeResult(
             run_id=run_id,
@@ -897,6 +1218,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", default="eval_results/unified")
     parser.add_argument("--run-id", default=None, help="Reuse a specific run id, primarily for resuming an interrupted run.")
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--routed", action="store_true", help="Use the routing layer to select the completion model per episode.")
+    parser.add_argument("--router-model-path", default=None, help="Local path to a downloaded bdanko/umsb-distilbert-router model.")
+    parser.add_argument("--episodic-memory-model-path", default=None, help="Local sentence-transformers model path for episodic memory retrieval.")
+    parser.add_argument("--episodic-memory-dataset-path", default=None, help="Local load_from_disk dataset path with episodic memory chunks.")
+    parser.add_argument("--episodic-memory-chunks-path", default=None, help="Local JSONL memory chunks aligned to precomputed embeddings.")
+    parser.add_argument("--episodic-memory-embeddings-path", default=None, help="Local .npy matrix of normalized memory embeddings.")
+    parser.add_argument("--episodic-memory-top-k", type=int, default=3)
     return parser.parse_args()
 
 
@@ -904,6 +1232,21 @@ def main() -> None:
     args = parse_args()
     args.reset_medagentbench = not args.no_reset_medagentbench
     args.api_semaphore = threading.BoundedSemaphore(args.max_openrouter_requests)
+    args.router_runtime = None
+    if args.routed and args.router_model_path:
+        args.router_runtime = DistilBertRouterRuntime(args.router_model_path)
+    args.episodic_memory_runtime = None
+    if args.episodic_memory_model_path and (
+        (args.episodic_memory_chunks_path and args.episodic_memory_embeddings_path)
+        or args.episodic_memory_dataset_path
+    ):
+        args.episodic_memory_runtime = EpisodicMemoryRuntime(
+            args.episodic_memory_model_path,
+            args.episodic_memory_top_k,
+            dataset_path=args.episodic_memory_dataset_path,
+            chunks_path=args.episodic_memory_chunks_path,
+            embeddings_path=args.episodic_memory_embeddings_path,
+        )
     if not os.getenv("OPENROUTER_API_KEY"):
         raise RuntimeError("OPENROUTER_API_KEY is required.")
     run_id = args.run_id or now_run_id()
@@ -981,6 +1324,7 @@ def main() -> None:
         "n": len(all_results),
         "by_benchmark": summarize(all_results),
         "usage": summarize_usage(all_results),
+        "routing": summarize_routing(all_results),
         "result_path": str(result_path),
         "episodic_memory_candidates_path": str(memory_path),
     }
