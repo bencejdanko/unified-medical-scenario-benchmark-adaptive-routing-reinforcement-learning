@@ -8,10 +8,6 @@ Despite the growing breadth of evaluation frameworks, the community has not yet 
 
 There is a practical research need for such a unified, multi-scenario benchmark. In practical applied LLM systems, for economic needs, engineers are creating router-based LLM orchestrations that route requests based on request needs. Simple queries routing to less powerful but capable models, and more complex requests need to be allocated to more powerful agentic harnesses.
 
-Final Technical Report:
-
-https://docs.google.com/document/d/1n87w2gb8m_BC_6A8TrfDWjRd5XLC7Yojs5J0buq73Js/edit?usp=sharing
-
 Final Presentation Slide Deck:
 
 https://docs.google.com/presentation/d/1VaB-_TSqhFCthu85sKGChsWGpIfkaH0qlCs1xFKeOLA/edit?usp=sharing
