@@ -1,0 +1,92 @@
+{
+  "dataset": "hf_out/unified_medical_scenario_benchmark",
+  "split": "test",
+  "n": 1371,
+  "router_model_path": "hf_out/umsb-distilbert-router",
+  "episodic_memory_enabled": false,
+  "episodic_memory_model_path": null,
+  "router_latency": {
+    "n": 1371,
+    "mean_ms": 99.12858847592805,
+    "median_ms": 84.84581299126148,
+    "p95_ms": 195.52802800899372,
+    "p99_ms": 273.34552799584344,
+    "min_ms": 35.09174801001791,
+    "max_ms": 530.3978150041075
+  },
+  "memory_latency": null,
+  "combined_router_memory_latency": {
+    "n": 1371,
+    "mean_ms": 99.1305953273942,
+    "median_ms": 84.8474350059405,
+    "p95_ms": 195.52963999740314,
+    "p99_ms": 273.346527988906,
+    "min_ms": 35.0931160064647,
+    "max_ms": 530.4011050029658
+  },
+  "by_benchmark": {
+    "healthbench": {
+      "router_latency": {
+        "n": 400,
+        "mean_ms": 96.65574648792244,
+        "median_ms": 77.23232799617108,
+        "p95_ms": 206.68122899951413,
+        "p99_ms": 347.79070000513457,
+        "min_ms": 35.09174801001791,
+        "max_ms": 530.3978150041075
+      },
+      "memory_latency": null,
+      "combined_router_memory_latency": {
+        "n": 400,
+        "mean_ms": 96.65771374005999,
+        "median_ms": 77.23396299843444,
+        "p95_ms": 206.68305800063536,
+        "p99_ms": 347.7925749903079,
+        "min_ms": 35.0931160064647,
+        "max_ms": 530.4011050029658
+      }
+    },
+    "medagentbench": {
+      "router_latency": {
+        "n": 100,
+        "mean_ms": 128.66003318034927,
+        "median_ms": 119.21509999228874,
+        "p95_ms": 198.97152300109155,
+        "p99_ms": 215.84393600642215,
+        "min_ms": 72.13752999086864,
+        "max_ms": 225.48419200757053
+      },
+      "memory_latency": null,
+      "combined_router_memory_latency": {
+        "n": 100,
+        "mean_ms": 128.66178505049902,
+        "median_ms": 119.21686949790455,
+        "p95_ms": 198.973558988655,
+        "p99_ms": 215.84509700187482,
+        "min_ms": 72.13921500078868,
+        "max_ms": 225.4853039921727
+      }
+    },
+    "mmlu_medical": {
+      "router_latency": {
+        "n": 871,
+        "mean_ms": 96.87370021503267,
+        "median_ms": 83.79114100534935,
+        "p95_ms": 179.2668279958889,
+        "p99_ms": 257.5877030030824,
+        "min_ms": 49.70448500534985,
+        "max_ms": 333.8033850013744
+      },
+      "memory_latency": null,
+      "combined_router_memory_latency": {
+        "n": 871,
+        "mean_ms": 96.87575452673197,
+        "median_ms": 83.79288000287488,
+        "p95_ms": 179.2683680105256,
+        "p99_ms": 257.5889029976679,
+        "min_ms": 49.705860001267865,
+        "max_ms": 333.8052780018188
+      }
+    }
+  }
+}

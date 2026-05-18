@@ -17,7 +17,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-from datasets import Dataset, DatasetDict, load_dataset
+from datasets import Dataset, DatasetDict, load_dataset, load_from_disk
 
 
 DEFAULT_SOURCE = "bdanko/unified_medical_scenario_benchmark"
@@ -58,7 +58,7 @@ def parse_json_field(row: dict[str, Any], key: str, default: Any) -> Any:
         return default
 
 
-def compact_router_text(row: dict[str, Any]) -> str:
+def metadata_rich_router_text(row: dict[str, Any]) -> str:
     benchmark = row["benchmark"]
     parts = [
         f"benchmark: {benchmark}",
@@ -86,7 +86,52 @@ def compact_router_text(row: dict[str, Any]) -> str:
     return "\n".join(part for part in parts if part.strip())
 
 
-def convert_row(row: dict[str, Any]) -> dict[str, Any]:
+def content_only_router_text(row: dict[str, Any]) -> str:
+    """Build a realistic router input without explicit benchmark metadata.
+
+    The goal is to resemble what a production router could see before choosing
+    an execution path: the user's task content, optional clinical context, and
+    answer options when the user supplied them. It intentionally omits
+    benchmark, scenario_type, task_family, is_hard, labels, rubrics, and tool
+    names because those fields leak the benchmark identity or evaluation target.
+    """
+    benchmark = row["benchmark"]
+    task_text = ""
+    context_text = ""
+    option_text = ""
+
+    if benchmark == "mmlu_medical":
+        task_text = str(row.get("question", "")).strip()
+        choices = parse_json_field(row, "choices_json", [])
+        option_text = "\n".join(f"{chr(65 + i)}. {choice}" for i, choice in enumerate(choices))
+    elif benchmark == "healthbench":
+        messages = parse_json_field(row, "messages_json", [])
+        task_text = "\n".join(
+            str(message.get("content", "")).strip()
+            for message in messages
+            if isinstance(message, dict) and message.get("role") == "user"
+        )
+    elif benchmark == "medagentbench":
+        task_text = str(row.get("instruction", "")).strip()
+        context_text = str(row.get("context", "")).strip()
+
+    sections = [
+        ("Task", task_text),
+        ("Context", context_text),
+        ("Answer options", option_text),
+    ]
+    return "\n\n".join(f"{title}:\n{content}" for title, content in sections if content)
+
+
+def compact_router_text(row: dict[str, Any], input_mode: str = "metadata_rich") -> str:
+    if input_mode == "metadata_rich":
+        return metadata_rich_router_text(row)
+    if input_mode == "content_only":
+        return content_only_router_text(row)
+    raise ValueError(f"Unsupported input mode: {input_mode}")
+
+
+def convert_row(row: dict[str, Any], input_mode: str = "metadata_rich") -> dict[str, Any]:
     benchmark = row["benchmark"]
     model_label = MODEL_BY_BENCHMARK[benchmark]
     tool_label = TOOL_BY_BENCHMARK[benchmark]
@@ -95,7 +140,7 @@ def convert_row(row: dict[str, Any]) -> dict[str, Any]:
         "id": row["id"],
         "source_id": row["source_id"],
         "benchmark": benchmark,
-        "text": compact_router_text(row),
+        "text": compact_router_text(row, input_mode=input_mode),
         "model_label": model_label,
         "tool_label": tool_label,
         "prompt_label": prompt_label,
@@ -112,6 +157,27 @@ def split_dataset(ds: Dataset, seed: int) -> DatasetDict:
     return DatasetDict(train=first["train"], validation=second["train"], test=second["test"])
 
 
+def source_split_dataset(source_name: str, input_mode: str) -> DatasetDict:
+    if Path(source_name).exists():
+        source_ds = load_from_disk(source_name)
+        splits = {}
+        for split_name in ("train", "validation", "test"):
+            rows = [
+                convert_row(dict(row), input_mode=input_mode)
+                for row in source_ds[split_name]
+                if row["benchmark"] in MODEL_BY_BENCHMARK
+            ]
+            splits[split_name] = Dataset.from_list(rows).class_encode_column("benchmark")
+        return DatasetDict(splits)
+
+    splits = {}
+    for split_name in ("train", "validation", "test"):
+        source = load_dataset(source_name, split=split_name)
+        rows = [convert_row(dict(row), input_mode=input_mode) for row in source if row["benchmark"] in MODEL_BY_BENCHMARK]
+        splits[split_name] = Dataset.from_list(rows).class_encode_column("benchmark")
+    return DatasetDict(splits)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", default=DEFAULT_SOURCE)
@@ -119,13 +185,27 @@ def main() -> None:
     parser.add_argument("--repo-id", default=DEFAULT_REPO)
     parser.add_argument("--out-dir", default="hf_out/umsb-routing-classification")
     parser.add_argument("--seed", type=int, default=17)
+    parser.add_argument(
+        "--input-mode",
+        choices=["metadata_rich", "content_only"],
+        default="metadata_rich",
+        help="Router text representation. content_only removes explicit benchmark/scenario metadata.",
+    )
+    parser.add_argument(
+        "--use-source-splits",
+        action="store_true",
+        help="Use source train/validation/test splits directly instead of splitting one source split.",
+    )
     parser.add_argument("--push", action="store_true")
     args = parser.parse_args()
 
-    source = load_dataset(args.source, split=args.source_split)
-    rows = [convert_row(dict(row)) for row in source if row["benchmark"] in MODEL_BY_BENCHMARK]
-    ds = Dataset.from_list(rows).class_encode_column("benchmark")
-    split = split_dataset(ds, args.seed)
+    if args.use_source_splits:
+        split = source_split_dataset(args.source, args.input_mode)
+    else:
+        source = load_dataset(args.source, split=args.source_split)
+        rows = [convert_row(dict(row), input_mode=args.input_mode) for row in source if row["benchmark"] in MODEL_BY_BENCHMARK]
+        ds = Dataset.from_list(rows).class_encode_column("benchmark")
+        split = split_dataset(ds, args.seed)
 
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -133,10 +213,14 @@ def main() -> None:
     metadata = {
         "source": args.source,
         "source_split": args.source_split,
+        "input_mode": args.input_mode,
+        "use_source_splits": args.use_source_splits,
         "model_labels": MODEL_LABELS,
         "tool_labels": TOOL_LABELS,
         "prompt_labels": PROMPT_LABELS,
         "counts": {name: Counter(split[name]["benchmark"]).most_common() for name in split},
+        "tool_counts": {name: Counter(split[name]["tool_label"]).most_common() for name in split},
+        "prompt_counts": {name: Counter(split[name]["prompt_label"]).most_common() for name in split},
     }
     (out_dir / "routing_metadata.json").write_text(json.dumps(metadata, indent=2))
     print(json.dumps(metadata, indent=2))

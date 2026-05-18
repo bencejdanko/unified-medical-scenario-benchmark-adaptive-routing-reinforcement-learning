@@ -1,9 +1,6 @@
-"""Run the unified medical scenario benchmark and return per-episode rewards.
-
-The runner is intentionally router-free: one model is used for task completions,
-and one judge model is used for HealthBench rubric grading. Results are written
-incrementally as JSONL so failed test episodes can later seed an episodic memory
-buffer without re-running the benchmark.
+"""
+Run the unified medical scenario benchmark 
+and return per-episode rewards.
 """
 
 from __future__ import annotations
@@ -155,6 +152,39 @@ def normalize_option(text: str) -> str:
         return ""
     match = re.search(r"\b([A-D])\b", text)
     return match.group(1) if match else text[0]
+
+
+def parse_multiple_choice_response(response_text: str) -> tuple[str, float | None, bool]:
+    """Extract an A-D answer with the tolerant parser used by zero-shot evals."""
+    text = (response_text or "").strip()
+    if not text:
+        return "", None, False
+    try:
+        parsed = json.loads(text)
+        answer = normalize_option(str(parsed.get("answer", "")))
+        confidence = parsed.get("confidence")
+        if confidence is not None:
+            confidence = max(0.0, min(1.0, float(confidence)))
+        if answer in {"A", "B", "C", "D"}:
+            return answer, confidence, True
+    except (json.JSONDecodeError, TypeError, ValueError):
+        pass
+
+    json_match = re.search(
+        r'\{[^}]*"answer"\s*:\s*"([A-D])"[^}]*"confidence"\s*:\s*([\d.]+)[^}]*\}',
+        text,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    if json_match:
+        confidence = max(0.0, min(1.0, float(json_match.group(2))))
+        return json_match.group(1).upper(), confidence, True
+
+    match = re.search(r"\b([A-D])\b", text.upper())
+    if match:
+        return match.group(1), 0.5, True
+    if text[0].upper() in {"A", "B", "C", "D"}:
+        return text[0].upper(), 0.5, True
+    return "", None, False
 
 
 def extract_json(text: str) -> dict[str, Any]:
@@ -452,16 +482,33 @@ def mmlu_messages(row: dict[str, Any], memory_block: str = "") -> list[dict[str,
 def run_mmlu(row: dict[str, Any], client: OpenAI, args: argparse.Namespace, run_id: str) -> EpisodeResult:
     messages = mmlu_messages(row, episodic_memory_block(row, args))
     start = time.time()
-    raw, meta = call_chat(
-        client,
-        args.model,
-        messages,
-        temperature=0.0,
-        max_tokens=128,
-        api_semaphore=getattr(args, "api_semaphore", None),
-    )
-    parsed = extract_json(raw)
-    predicted = normalize_option(str(parsed.get("answer", raw)))
+    raw = ""
+    meta: dict[str, Any] = {}
+    predicted = ""
+    confidence: float | None = None
+    parse_ok = False
+    attempts: list[dict[str, Any]] = []
+    for attempt in range(args.mmlu_response_retries + 1):
+        raw, meta = call_chat(
+            client,
+            args.model,
+            messages,
+            temperature=0.0,
+            max_tokens=args.mmlu_max_tokens,
+            api_semaphore=getattr(args, "api_semaphore", None),
+        )
+        predicted, confidence, parse_ok = parse_multiple_choice_response(raw)
+        attempts.append(
+            {
+                "attempt": attempt + 1,
+                "parse_ok": parse_ok,
+                "raw_len": len(raw or ""),
+                "answer": predicted,
+            }
+        )
+        if parse_ok:
+            break
+        time.sleep(0.5 * (attempt + 1))
     target = row["correct_option"]
     reward = 1.0 if predicted == target else 0.0
     return EpisodeResult(
@@ -480,7 +527,7 @@ def run_mmlu(row: dict[str, Any], client: OpenAI, args: argparse.Namespace, run_
         latency_s=time.time() - start,
         prompt_messages=messages,
         transcript=messages + [{"role": "assistant", "content": raw}],
-        reward_details={"confidence": parsed.get("confidence")},
+        reward_details={"confidence": confidence, "parse_ok": parse_ok, "attempts": attempts},
         router_context=router_context(row),
         source_metadata=source_metadata(row),
         episodic_memory_candidate=reward == 0.0,
@@ -1196,6 +1243,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--api-base", default=os.getenv("OPENROUTER_API_URL", DEFAULT_API_BASE))
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--max-tokens", type=int, default=4096)
+    parser.add_argument("--mmlu-max-tokens", type=int, default=1024)
+    parser.add_argument("--mmlu-response-retries", type=int, default=3)
     parser.add_argument("--judge-max-tokens", type=int, default=2048)
     parser.add_argument("--healthbench-threads", type=int, default=4)
     parser.add_argument("--healthbench-grader-retries", type=int, default=8)

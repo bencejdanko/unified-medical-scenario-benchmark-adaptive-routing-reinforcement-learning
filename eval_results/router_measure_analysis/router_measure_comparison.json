@@ -1,0 +1,342 @@
+{
+  "runs": {
+    "router_only": {
+      "run_name": "router_only",
+      "episodes_path": "eval_results/unified_router_only_test_run1/corrected_combined_episodes.jsonl",
+      "n": 1371,
+      "overall": {
+        "n": 1371,
+        "scored_n": 1363,
+        "mean_reward": 0.7000590456453866,
+        "nonzero_reward_n": 1152,
+        "nonzero_reward_rate": 0.8451944240645635,
+        "prompt_accuracy": 0.9569657184536834,
+        "tool_accuracy": 0.9263311451495259,
+        "model_changed_rate": 0.7490882567469,
+        "memory_injected_n": 0,
+        "memory_injected_rate": 0.0
+      },
+      "tool_routing": {
+        "medagentbench_selected_fhir_rate": 0.0,
+        "non_medagentbench_selected_fhir_rate": 0.0,
+        "medagentbench_actual_tool_prompt_injection_rate": 1.0,
+        "non_medagentbench_actual_tool_prompt_injection_rate": 0.0,
+        "mean_confidence_when_correct": 0.9850162388302209,
+        "mean_confidence_when_wrong": 0.76910695374012
+      },
+      "prompt_routing": {
+        "mean_confidence_when_correct": 0.8782183001635642,
+        "mean_confidence_when_wrong": 0.5549497357730208,
+        "reward_when_prompt_correct": {
+          "n": 1312,
+          "scored_n": 1307,
+          "mean_reward": 0.7176611969837545,
+          "nonzero_reward_n": 1119,
+          "nonzero_reward_rate": 0.856159143075746
+        },
+        "reward_when_prompt_wrong": {
+          "n": 59,
+          "scored_n": 56,
+          "mean_reward": 0.28923740637311857,
+          "nonzero_reward_n": 33,
+          "nonzero_reward_rate": 0.5892857142857143
+        }
+      },
+      "tool_reward_analysis": {
+        "reward_when_tool_correct": {
+          "n": 1270,
+          "scored_n": 1270,
+          "mean_reward": 0.7253389600115447,
+          "nonzero_reward_n": 1119,
+          "nonzero_reward_rate": 0.8811023622047244
+        },
+        "reward_when_tool_wrong": {
+          "n": 101,
+          "scored_n": 93,
+          "mean_reward": 0.3548387096774194,
+          "nonzero_reward_n": 33,
+          "nonzero_reward_rate": 0.3548387096774194
+        }
+      },
+      "by_benchmark": {
+        "healthbench": {
+          "n": 400,
+          "scored_n": 399,
+          "mean_reward": 0.3788984441470221,
+          "nonzero_reward_n": 349,
+          "nonzero_reward_rate": 0.87468671679198,
+          "expected_prompt": "healthbench_default",
+          "expected_tool": "none",
+          "prompt_accuracy": 0.905,
+          "tool_accuracy": 0.9975,
+          "selected_prompt_counts": {
+            "healthbench_default": 362,
+            "mmlu_medical_json": 35,
+            "medagentbench_fhir": 2,
+            "missing": 1
+          },
+          "selected_tool_counts": {
+            "none": 399,
+            "missing": 1
+          },
+          "actual_medagent_tool_prompt_injection_rate": 0.0
+        },
+        "medagentbench": {
+          "n": 100,
+          "scored_n": 93,
+          "mean_reward": 0.3548387096774194,
+          "nonzero_reward_n": 33,
+          "nonzero_reward_rate": 0.3548387096774194,
+          "expected_prompt": "medagentbench_fhir",
+          "expected_tool": "fhir",
+          "prompt_accuracy": 0.79,
+          "tool_accuracy": 0.0,
+          "selected_prompt_counts": {
+            "mmlu_medical_json": 21,
+            "medagentbench_fhir": 79
+          },
+          "selected_tool_counts": {
+            "none": 100
+          },
+          "actual_medagent_tool_prompt_injection_rate": 1.0
+        },
+        "mmlu_medical": {
+          "n": 871,
+          "scored_n": 871,
+          "mean_reward": 0.8840413318025259,
+          "nonzero_reward_n": 770,
+          "nonzero_reward_rate": 0.8840413318025259,
+          "expected_prompt": "mmlu_medical_json",
+          "expected_tool": "none",
+          "prompt_accuracy": 1.0,
+          "tool_accuracy": 1.0,
+          "selected_prompt_counts": {
+            "mmlu_medical_json": 871
+          },
+          "selected_tool_counts": {
+            "none": 871
+          },
+          "actual_medagent_tool_prompt_injection_rate": 0.0
+        }
+      },
+      "prompt_confusion": {
+        "healthbench": {
+          "healthbench_default": 362,
+          "mmlu_medical_json": 35,
+          "medagentbench_fhir": 2,
+          "missing": 1
+        },
+        "medagentbench": {
+          "mmlu_medical_json": 21,
+          "medagentbench_fhir": 79
+        },
+        "mmlu_medical": {
+          "mmlu_medical_json": 871
+        }
+      },
+      "tool_confusion": {
+        "healthbench": {
+          "none": 399,
+          "missing": 1
+        },
+        "medagentbench": {
+          "none": 100
+        },
+        "mmlu_medical": {
+          "none": 871
+        }
+      },
+      "model_confusion": {
+        "healthbench": {
+          "google/gemini-3-flash-preview": 343,
+          "openai/gpt-oss-120b:nitro": 54,
+          "google/gemma-4-31b-it": 2,
+          "missing": 1
+        },
+        "medagentbench": {
+          "openai/gpt-oss-120b:nitro": 79,
+          "google/gemma-4-31b-it": 21
+        },
+        "mmlu_medical": {
+          "openai/gpt-oss-120b:nitro": 871
+        }
+      },
+      "critical_findings": [
+        "The classifier never selected fhir for MedAgentBench, so the tool head failed the intended tool-routing target even though the evaluator still injected the FHIR prompt by benchmark.",
+        "No actual FHIR tool prompt injection was detected outside MedAgentBench.",
+        "Prompt-head errors occurred on 59 / 1371 examples; these were logged but did not alter actual prompt construction in this runner."
+      ]
+    },
+    "router_memory": {
+      "run_name": "router_memory",
+      "episodes_path": "eval_results/unified_router_memory_test_run1/corrected_combined_episodes.jsonl",
+      "n": 1371,
+      "overall": {
+        "n": 1371,
+        "scored_n": 1361,
+        "mean_reward": 0.6844845117956724,
+        "nonzero_reward_n": 1136,
+        "nonzero_reward_rate": 0.8346803820720059,
+        "prompt_accuracy": 0.9569657184536834,
+        "tool_accuracy": 0.9270605397520059,
+        "model_changed_rate": 0.74981765134938,
+        "memory_injected_n": 1371,
+        "memory_injected_rate": 1.0
+      },
+      "tool_routing": {
+        "medagentbench_selected_fhir_rate": 0.0,
+        "non_medagentbench_selected_fhir_rate": 0.0,
+        "medagentbench_actual_tool_prompt_injection_rate": 1.0,
+        "non_medagentbench_actual_tool_prompt_injection_rate": 0.0,
+        "mean_confidence_when_correct": 0.9849844176313429,
+        "mean_confidence_when_wrong": 0.76910695374012
+      },
+      "prompt_routing": {
+        "mean_confidence_when_correct": 0.8782183001635642,
+        "mean_confidence_when_wrong": 0.5530436695632288,
+        "reward_when_prompt_correct": {
+          "n": 1312,
+          "scored_n": 1305,
+          "mean_reward": 0.7049210454663739,
+          "nonzero_reward_n": 1105,
+          "nonzero_reward_rate": 0.8467432950191571
+        },
+        "reward_when_prompt_wrong": {
+          "n": 59,
+          "scored_n": 56,
+          "mean_reward": 0.20824028964807528,
+          "nonzero_reward_n": 31,
+          "nonzero_reward_rate": 0.5535714285714286
+        }
+      },
+      "tool_reward_analysis": {
+        "reward_when_tool_correct": {
+          "n": 1271,
+          "scored_n": 1271,
+          "mean_reward": 0.7187910468559482,
+          "nonzero_reward_n": 1118,
+          "nonzero_reward_rate": 0.8796223446105429
+        },
+        "reward_when_tool_wrong": {
+          "n": 100,
+          "scored_n": 90,
+          "mean_reward": 0.2,
+          "nonzero_reward_n": 18,
+          "nonzero_reward_rate": 0.2
+        }
+      },
+      "by_benchmark": {
+        "healthbench": {
+          "n": 400,
+          "scored_n": 400,
+          "mean_reward": 0.3614585513847753,
+          "nonzero_reward_n": 349,
+          "nonzero_reward_rate": 0.8725,
+          "expected_prompt": "healthbench_default",
+          "expected_tool": "none",
+          "prompt_accuracy": 0.905,
+          "tool_accuracy": 1.0,
+          "selected_prompt_counts": {
+            "healthbench_default": 362,
+            "mmlu_medical_json": 36,
+            "medagentbench_fhir": 2
+          },
+          "selected_tool_counts": {
+            "none": 400
+          },
+          "actual_medagent_tool_prompt_injection_rate": 0.0
+        },
+        "medagentbench": {
+          "n": 100,
+          "scored_n": 90,
+          "mean_reward": 0.2,
+          "nonzero_reward_n": 18,
+          "nonzero_reward_rate": 0.2,
+          "expected_prompt": "medagentbench_fhir",
+          "expected_tool": "fhir",
+          "prompt_accuracy": 0.79,
+          "tool_accuracy": 0.0,
+          "selected_prompt_counts": {
+            "mmlu_medical_json": 21,
+            "medagentbench_fhir": 79
+          },
+          "selected_tool_counts": {
+            "none": 100
+          },
+          "actual_medagent_tool_prompt_injection_rate": 1.0
+        },
+        "mmlu_medical": {
+          "n": 871,
+          "scored_n": 871,
+          "mean_reward": 0.8828932261768083,
+          "nonzero_reward_n": 769,
+          "nonzero_reward_rate": 0.8828932261768083,
+          "expected_prompt": "mmlu_medical_json",
+          "expected_tool": "none",
+          "prompt_accuracy": 1.0,
+          "tool_accuracy": 1.0,
+          "selected_prompt_counts": {
+            "mmlu_medical_json": 871
+          },
+          "selected_tool_counts": {
+            "none": 871
+          },
+          "actual_medagent_tool_prompt_injection_rate": 0.0
+        }
+      },
+      "prompt_confusion": {
+        "healthbench": {
+          "healthbench_default": 362,
+          "mmlu_medical_json": 36,
+          "medagentbench_fhir": 2
+        },
+        "medagentbench": {
+          "mmlu_medical_json": 21,
+          "medagentbench_fhir": 79
+        },
+        "mmlu_medical": {
+          "mmlu_medical_json": 871
+        }
+      },
+      "tool_confusion": {
+        "healthbench": {
+          "none": 400
+        },
+        "medagentbench": {
+          "none": 100
+        },
+        "mmlu_medical": {
+          "none": 871
+        }
+      },
+      "model_confusion": {
+        "healthbench": {
+          "google/gemini-3-flash-preview": 343,
+          "openai/gpt-oss-120b:nitro": 55,
+          "google/gemma-4-31b-it": 2
+        },
+        "medagentbench": {
+          "openai/gpt-oss-120b:nitro": 79,
+          "google/gemma-4-31b-it": 21
+        },
+        "mmlu_medical": {
+          "openai/gpt-oss-120b:nitro": 871
+        }
+      },
+      "critical_findings": [
+        "The classifier never selected fhir for MedAgentBench, so the tool head failed the intended tool-routing target even though the evaluator still injected the FHIR prompt by benchmark.",
+        "No actual FHIR tool prompt injection was detected outside MedAgentBench.",
+        "Prompt-head errors occurred on 59 / 1371 examples; these were logged but did not alter actual prompt construction in this runner.",
+        "Episodic memory text was actually injected into 1371 prompts in router_memory."
+      ]
+    }
+  },
+  "delta": {
+    "right_minus_left": {
+      "mean_reward": -0.01557453384971419,
+      "prompt_accuracy": 0.0,
+      "tool_accuracy": 0.0007293946024800047,
+      "memory_injected_rate": 1.0
+    }
+  }
+}

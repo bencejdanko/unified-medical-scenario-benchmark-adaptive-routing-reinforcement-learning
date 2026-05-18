@@ -1,0 +1,212 @@
+{
+  "run_id": "20260506T162616Z_corrected_mmlu_20260506T195107Z",
+  "dataset": "bdanko/unified_medical_scenario_benchmark",
+  "split": "test",
+  "model": "google/gemini-3-flash-preview",
+  "judge_model": "google/gemini-3-flash-preview",
+  "created_at": "2026-05-06T19:55:27.692010+00:00",
+  "n": 1371,
+  "by_benchmark": {
+    "mmlu_medical": {
+      "n": 871,
+      "scored_n": 871,
+      "mean_reward": 0.8828932261768083,
+      "failures": 102,
+      "unscored": 0,
+      "mean_judge_reward": null,
+      "latency_s_total": 526.5367186069489,
+      "latency_s_mean": 0.604519768779505,
+      "latency_s_min": 0.20843505859375,
+      "latency_s_max": 13.422703981399536,
+      "latency_s_components_mean": {},
+      "latency_s_components_total": {}
+    },
+    "healthbench": {
+      "n": 400,
+      "scored_n": 400,
+      "mean_reward": 0.3614585513847753,
+      "failures": 9,
+      "unscored": 0,
+      "mean_judge_reward": null,
+      "latency_s_total": 13398.035240888596,
+      "latency_s_mean": 33.49508810222149,
+      "latency_s_min": 7.525192975997925,
+      "latency_s_max": 139.327871799469,
+      "latency_s_components_mean": {
+        "response": 10.734808813929558,
+        "judge": 22.54816006422043,
+        "total": 33.49508810222149
+      },
+      "latency_s_components_total": {
+        "response": 4293.923525571823,
+        "judge": 9019.264025688171,
+        "total": 13398.035240888596
+      }
+    },
+    "medagentbench": {
+      "n": 100,
+      "scored_n": 90,
+      "mean_reward": 0.2,
+      "failures": 72,
+      "unscored": 10,
+      "mean_judge_reward": 0.8111111111111111,
+      "latency_s_total": 497.02536964416504,
+      "latency_s_mean": 4.970253696441651,
+      "latency_s_min": 0.40002870559692383,
+      "latency_s_max": 33.49567008018494,
+      "latency_s_components_mean": {
+        "reset": 0.0,
+        "agent": 3.053475420475006,
+        "official_scorer": 0.3099526786804199,
+        "judge": 1.6055697512626648,
+        "total": 4.970253696441651
+      },
+      "latency_s_components_total": {
+        "reset": 0.0,
+        "agent": 305.3475420475006,
+        "official_scorer": 30.995267868041992,
+        "judge": 160.55697512626648,
+        "total": 497.02536964416504
+      }
+    }
+  },
+  "usage": {
+    "total": {
+      "prompt_tokens": 12056945,
+      "completion_tokens": 945529,
+      "total_tokens": 13002474,
+      "cost": 7.027444012050001,
+      "usage_records": 6388
+    },
+    "by_benchmark": {
+      "mmlu_medical": {
+        "prompt_tokens": 558377,
+        "completion_tokens": 191690,
+        "total_tokens": 750067,
+        "cost": 0.0002649735,
+        "usage_records": 871
+      },
+      "healthbench": {
+        "prompt_tokens": 10484682,
+        "completion_tokens": 696434,
+        "total_tokens": 11181116,
+        "cost": 6.970589703000001,
+        "usage_records": 5220
+      },
+      "medagentbench": {
+        "prompt_tokens": 1013886,
+        "completion_tokens": 57405,
+        "total_tokens": 1071291,
+        "cost": 0.05658933555,
+        "usage_records": 297
+      }
+    }
+  },
+  "routing": {
+    "routed_n": 1371,
+    "selected_model_counts": {
+      "openai/gpt-oss-120b:nitro": 1005,
+      "google/gemini-3-flash-preview": 343,
+      "google/gemma-4-31b-it": 23
+    },
+    "selected_prompt_counts": {
+      "mmlu_medical_json": 928,
+      "healthbench_default": 362,
+      "medagentbench_fhir": 81
+    },
+    "selected_tool_counts": {
+      "none": 1371
+    },
+    "router_source_counts": {
+      "distilbert": 1371
+    },
+    "benchmark_to_selected_model_counts": {
+      "mmlu_medical": {
+        "openai/gpt-oss-120b:nitro": 871
+      },
+      "healthbench": {
+        "google/gemini-3-flash-preview": 343,
+        "openai/gpt-oss-120b:nitro": 55,
+        "google/gemma-4-31b-it": 2
+      },
+      "medagentbench": {
+        "openai/gpt-oss-120b:nitro": 79,
+        "google/gemma-4-31b-it": 21
+      }
+    },
+    "selected_model_summary": {
+      "openai/gpt-oss-120b:nitro": {
+        "n": 1005,
+        "scored_n": 995,
+        "mean_reward": 0.24885239257652864,
+        "failures": 710,
+        "latency_s_mean": 2.4188271370693224,
+        "usage": {
+          "prompt_tokens": 3343339,
+          "completion_tokens": 302746,
+          "total_tokens": 3646085,
+          "cost": 1.1586797145,
+          "usage_records": 1816
+        }
+      },
+      "google/gemini-3-flash-preview": {
+        "n": 343,
+        "scored_n": 343,
+        "mean_reward": 0.3740274605612892,
+        "failures": 8,
+        "latency_s_mean": 34.07472470202877,
+        "usage": {
+          "prompt_tokens": 8433605,
+          "completion_tokens": 547724,
+          "total_tokens": 8981329,
+          "cost": 5.796858276000002,
+          "usage_records": 4473
+        }
+      },
+      "google/gemma-4-31b-it": {
+        "n": 23,
+        "scored_n": 23,
+        "mean_reward": 0.02973352033660589,
+        "failures": 20,
+        "latency_s_mean": 13.424556991328364,
+        "usage": {
+          "prompt_tokens": 280001,
+          "completion_tokens": 9741,
+          "total_tokens": 289742,
+          "cost": 0.07164104805,
+          "usage_records": 99
+        }
+      }
+    },
+    "model_diversity": {
+      "unique_selected_models": 3,
+      "selected_model_share": {
+        "openai/gpt-oss-120b:nitro": 0.7330415754923414,
+        "google/gemini-3-flash-preview": 0.25018234865062,
+        "google/gemma-4-31b-it": 0.016776075857038657
+      }
+    },
+    "router_confidence_mean": {
+      "model": 0.8581996260551881,
+      "tool": 0.9692384319354113,
+      "prompt": 0.8642246435585899
+    },
+    "episodic_memory": {
+      "enabled_n": 871,
+      "mean_retrieved": 3.0,
+      "mean_similarity": 0.4325331011427074
+    },
+    "correction_note": {
+      "reason": "Original routed MMLU slice contained many empty/truncated OpenRouter responses because unified MMLU used max_tokens=128 and strict JSON-only extraction. Corrected summary replaces MMLU with a MMLU-only rerun using max_tokens=1024, tolerant A-D parser, and retry-on-empty/malformed output.",
+      "original_full_run": "eval_results/unified_router_memory_test_run1/20260506T162616Z_test_episodes.jsonl",
+      "corrected_mmlu_run": "eval_results/unified_router_memory_test_run1/20260506T195107Z_test_episodes.jsonl"
+    }
+  },
+  "result_path": "eval_results/unified_router_memory_test_run1/20260506T162616Z_test_episodes.jsonl",
+  "episodic_memory_candidates_path": "eval_results/unified_router_memory_test_run1/20260506T162616Z_test_episodic_memory_candidates.jsonl",
+  "correction_note": {
+    "reason": "Original routed MMLU slice contained many empty/truncated OpenRouter responses because unified MMLU used max_tokens=128 and strict JSON-only extraction. Corrected summary replaces MMLU with a MMLU-only rerun using max_tokens=1024, tolerant A-D parser, and retry-on-empty/malformed output.",
+    "original_full_run": "eval_results/unified_router_memory_test_run1/20260506T162616Z_test_episodes.jsonl",
+    "corrected_mmlu_run": "eval_results/unified_router_memory_test_run1/20260506T195107Z_test_episodes.jsonl"
+  }
+}

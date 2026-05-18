@@ -1,0 +1,107 @@
+{
+  "run_id": "20260506T144457Z",
+  "dataset": "bdanko/unified_medical_scenario_benchmark",
+  "split": "train",
+  "model": "google/gemini-3-flash-preview",
+  "judge_model": "google/gemini-3-flash-preview",
+  "created_at": "2026-05-06T15:05:41.596373+00:00",
+  "n": 1350,
+  "by_benchmark": {
+    "mmlu_medical": {
+      "n": 800,
+      "scored_n": 800,
+      "mean_reward": 0.92,
+      "failures": 64,
+      "unscored": 0,
+      "mean_judge_reward": null,
+      "latency_s_total": 988.048487663269,
+      "latency_s_mean": 1.2350606095790864,
+      "latency_s_min": 0.6876757144927979,
+      "latency_s_max": 12.258856534957886,
+      "latency_s_components_mean": {},
+      "latency_s_components_total": {}
+    },
+    "healthbench": {
+      "n": 400,
+      "scored_n": 400,
+      "mean_reward": 0.3778439811193923,
+      "failures": 11,
+      "unscored": 0,
+      "mean_judge_reward": null,
+      "latency_s_total": 10424.494678735733,
+      "latency_s_mean": 26.061236696839334,
+      "latency_s_min": 9.033036708831787,
+      "latency_s_max": 56.77422523498535,
+      "latency_s_components_mean": {
+        "response": 9.798586441278458,
+        "judge": 16.09637099266052,
+        "total": 26.061236696839334
+      },
+      "latency_s_components_total": {
+        "response": 3919.434576511383,
+        "judge": 6438.548397064209,
+        "total": 10424.494678735733
+      }
+    },
+    "medagentbench": {
+      "n": 150,
+      "scored_n": 150,
+      "mean_reward": 0.4066666666666667,
+      "failures": 89,
+      "unscored": 0,
+      "mean_judge_reward": 0.8666666666666667,
+      "latency_s_total": 936.7281532287598,
+      "latency_s_mean": 6.244854354858399,
+      "latency_s_min": 2.9719417095184326,
+      "latency_s_max": 21.512945652008057,
+      "latency_s_components_mean": {
+        "reset": 0.0,
+        "agent": 3.985977363586426,
+        "official_scorer": 0.251741517384847,
+        "judge": 2.006216673851013,
+        "total": 6.244854354858399
+      },
+      "latency_s_components_total": {
+        "reset": 0.0,
+        "agent": 597.8966045379639,
+        "official_scorer": 37.76122760772705,
+        "judge": 300.932501077652,
+        "total": 936.7281532287598
+      }
+    }
+  },
+  "usage": {
+    "total": {
+      "prompt_tokens": 8990237,
+      "completion_tokens": 706697,
+      "total_tokens": 9696934,
+      "cost": 6.330187264499999,
+      "usage_records": 6353
+    },
+    "by_benchmark": {
+      "mmlu_medical": {
+        "prompt_tokens": 99521,
+        "completion_tokens": 9383,
+        "total_tokens": 108904,
+        "cost": 0.07713040500000004,
+        "usage_records": 800
+      },
+      "healthbench": {
+        "prompt_tokens": 7266154,
+        "completion_tokens": 661668,
+        "total_tokens": 7927822,
+        "cost": 5.557382819999998,
+        "usage_records": 5048
+      },
+      "medagentbench": {
+        "prompt_tokens": 1624562,
+        "completion_tokens": 35646,
+        "total_tokens": 1660208,
+        "cost": 0.6956740395,
+        "usage_records": 505
+      }
+    }
+  },
+  "result_path": "eval_results/unified_gemini3flash_train_/20260506T144457Z_train_episodes.jsonl",
+  "episodic_memory_candidates_path": "eval_results/unified_gemini3flash_train_/20260506T144457Z_train_episodic_memory_candidates.jsonl"
+}

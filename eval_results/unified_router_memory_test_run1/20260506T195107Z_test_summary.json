@@ -1,0 +1,97 @@
+{
+  "run_id": "20260506T195107Z",
+  "dataset": "bdanko/unified_medical_scenario_benchmark",
+  "split": "test",
+  "model": "google/gemini-3-flash-preview",
+  "judge_model": "google/gemini-3-flash-preview",
+  "created_at": "2026-05-06T19:54:52.129466+00:00",
+  "n": 871,
+  "by_benchmark": {
+    "mmlu_medical": {
+      "n": 871,
+      "scored_n": 871,
+      "mean_reward": 0.8828932261768083,
+      "failures": 102,
+      "unscored": 0,
+      "mean_judge_reward": null,
+      "latency_s_total": 526.5367186069489,
+      "latency_s_mean": 0.604519768779505,
+      "latency_s_min": 0.20843505859375,
+      "latency_s_max": 13.422703981399536,
+      "latency_s_components_mean": {},
+      "latency_s_components_total": {}
+    }
+  },
+  "usage": {
+    "total": {
+      "prompt_tokens": 558377,
+      "completion_tokens": 191690,
+      "total_tokens": 750067,
+      "cost": 0.0002649735,
+      "usage_records": 871
+    },
+    "by_benchmark": {
+      "mmlu_medical": {
+        "prompt_tokens": 558377,
+        "completion_tokens": 191690,
+        "total_tokens": 750067,
+        "cost": 0.0002649735,
+        "usage_records": 871
+      }
+    }
+  },
+  "routing": {
+    "routed_n": 871,
+    "selected_model_counts": {
+      "openai/gpt-oss-120b:nitro": 871
+    },
+    "selected_prompt_counts": {
+      "mmlu_medical_json": 871
+    },
+    "selected_tool_counts": {
+      "none": 871
+    },
+    "router_source_counts": {
+      "distilbert": 871
+    },
+    "benchmark_to_selected_model_counts": {
+      "mmlu_medical": {
+        "openai/gpt-oss-120b:nitro": 871
+      }
+    },
+    "selected_model_summary": {
+      "openai/gpt-oss-120b:nitro": {
+        "n": 871,
+        "scored_n": 871,
+        "mean_reward": 0.8828932261768083,
+        "failures": 102,
+        "latency_s_mean": 0.604519768779505,
+        "usage": {
+          "prompt_tokens": 558377,
+          "completion_tokens": 191690,
+          "total_tokens": 750067,
+          "cost": 0.0002649735,
+          "usage_records": 871
+        }
+      }
+    },
+    "model_diversity": {
+      "unique_selected_models": 1,
+      "selected_model_share": {
+        "openai/gpt-oss-120b:nitro": 1.0
+      }
+    },
+    "router_confidence_mean": {
+      "model": 0.9657858690219139,
+      "tool": 0.9883561421070253,
+      "prompt": 0.9732891250012526
+    },
+    "episodic_memory": {
+      "enabled_n": 871,
+      "mean_retrieved": 3.0,
+      "mean_similarity": 0.4325331011427074
+    }
+  },
+  "result_path": "eval_results/unified_router_memory_test_run1/20260506T195107Z_test_episodes.jsonl",
+  "episodic_memory_candidates_path": "eval_results/unified_router_memory_test_run1/20260506T195107Z_test_episodic_memory_candidates.jsonl"
+}
