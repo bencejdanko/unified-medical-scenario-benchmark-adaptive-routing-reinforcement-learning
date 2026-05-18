@@ -1,12 +1,4 @@
-# Latency Component Breakdown for Ablation Runs
-
-This addendum expands the `Mean Latency` column in the ablation reports into benchmark-specific components recorded by `run_unified_eval.py`.
-
-## Does Response Latency Include Router Time?
-
-No. In routed runs, `route_row(...)` executes before `run_mmlu`, `run_healthbench`, or `run_medagentbench` start their timers. Therefore reported benchmark latencies exclude DistilBERT router inference time. Episodic-memory retrieval is also performed before the benchmark timers in the current code path.
-
-For HealthBench, `response` is the answer-generation LLM call, while `judge` is HealthBench rubric grading. For MedAgentBench, `agent` is the whole agent loop including LLM calls and FHIR GET/POST HTTP calls; `official_scorer` is the reference scorer; `judge` is the optional LLM judge. MMLU currently records only total latency, not separate response/router components.
+# Latency Component 
 
 ## Component Means
 
@@ -22,9 +14,8 @@ For HealthBench, `response` is the answer-generation LLM call, while `judge` is 
 | Corrected DistilBERT Routed Policy + Episodic Memory | healthbench | 400 | 33.50s | 10.73s | N/A | 22.55s | N/A | N/A |
 | Corrected DistilBERT Routed Policy + Episodic Memory | medagentbench | 100 | 4.97s | N/A | 3.05s | 1.61s | 0.31s | 0.00s |
 
-## Key Comparisons
 
-### Corrected DistilBERT Routed Policy minus baseline
+### DistilBERT Routed Policy
 
 | Benchmark | Total Delta | Response/Agent Delta | Judge Delta | Official Scorer Delta |
 | --- | ---: | ---: | ---: | ---: |
@@ -32,7 +23,7 @@ For HealthBench, `response` is the answer-generation LLM call, while `judge` is 
 | healthbench | +6.27s | +1.14s | +5.15s | N/A |
 | medagentbench | -1.53s | -1.17s | -0.32s | -0.04s |
 
-### Corrected DistilBERT Routed Policy + Episodic Memory minus baseline
+### DistilBERT Routed Policy + Episodic Memory
 
 | Benchmark | Total Delta | Response/Agent Delta | Judge Delta | Official Scorer Delta |
 | --- | ---: | ---: | ---: | ---: |
@@ -41,8 +32,6 @@ For HealthBench, `response` is the answer-generation LLM call, while `judge` is 
 | medagentbench | -1.32s | -1.02s | -0.34s | +0.04s |
 
 ## Local No-OpenRouter Routing Overhead
-
-I also ran a local-only timing pass over the full unified test split (`n=1,371`) with no OpenRouter calls. This measures the overhead that is excluded from the ablation `Mean Latency` values.
 
 | Mode | Mean | Median | P95 | P99 | Max |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -58,6 +47,3 @@ By benchmark, mean local overhead was:
 | mmlu_medical | 97 ms | 381 ms |
 | healthbench | 97 ms | 341 ms |
 | medagentbench | 129 ms | 398 ms |
-
-Interpretation: on this local machine, adding the original DistilBERT router would add roughly **0.10s/episode** on average. The current unbatched router + episodic-memory retrieval path would add roughly **0.37s/episode** on average. These are local implementation timings and could be reduced with batching or persistent service execution.
-
